@@ -1,0 +1,70 @@
+// used to make space between rows
+.top-buffer {
+  margin-top: 20px;
+}
+
+.clear {
+  clear: both;
+}
+
+/*=== Colors ====*/
+@common-btn-color: #547bd3;
+@common-bg-color: #e3f2fd;
+@common-border-color: @common-btn-color;
+@common-shadow-color: fade(@common-border-color, 60%);
+/*=== Colors end ====*/
+
+/*==== Common values =====*/
+@nb-border-radius: .1rem;
+/*==== Common values end =====*/
+
+/*==== Dashboard Tiles ====*/
+.tile-size {
+  min-width: 150px;
+  min-height: 150px;
+  width: 150px;
+  height: 150px;
+}
+
+@tile-color: #6bb1e4;
+@tile-hover-color: darken(@tile-color, 20%);
+@tile-icon-color: #ffffff;
+@tile-icon-size: 100px;
+
+.text-line-wrap-size {
+  width: auto;
+  height: 23px;
+}
+
+@text-line-wrap-color: #ffffff;
+@tile-text-size: 15px;
+@tile-text-color: #444444;
+
+/*==== Dashboard  Tiles end ====*/
+/*==== Collection Tiles ====*/
+@collection-tile-width: 250px;
+.collection-tile-size {
+  min-width: @collection-tile-width;
+  min-height: 175px;
+  width: @collection-tile-width;
+  height: 175px;
+}
+
+@collection-tile-content-text-size: 13px;
+.collection-tile-thumbnail-size {
+  width: auto;
+  height: auto;
+  max-width: 92px;
+  max-height: 92px;
+}
+
+/*==== Collection Tiles end ====*/
+
+/*==== Entity Form Group Tiles ====*/
+.form-group-tile-size {
+  width: 460px;
+  height: auto;
+}
+
+/*==== Entity Form Group Tiles end ====*/
+

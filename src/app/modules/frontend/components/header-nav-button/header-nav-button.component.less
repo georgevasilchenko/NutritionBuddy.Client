@@ -1,0 +1,41 @@
+@import "../../../../../styles/common.less";
+
+.header-nav-button-wrapper {
+  float: left;
+  margin: 0px 5px 0px 5px;
+  width: 40px;
+  height: 40px;
+
+  border-radius: @nb-border-radius;
+
+  &:hover {
+    filter: opacity(50%);
+  }
+
+  .header-nav-button {
+
+    position: relative;
+
+    height: 100%;
+    width: auto;
+
+    margin: 0 auto;
+
+    .nav-button-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -42%);
+
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+
+      .material-icons {
+        font-size: 34px;
+        color: #e5e5e5;
+      }
+    }
+  }
+}

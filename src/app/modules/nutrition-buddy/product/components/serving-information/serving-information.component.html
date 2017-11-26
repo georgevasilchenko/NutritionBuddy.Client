@@ -1,0 +1,32 @@
+<div [formGroup]="form">
+  <div class="form-group-tile">
+    <div class="form-group-title"><p>Serving Information</p></div>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group" formGroupName="servingInformation">
+          <label for="productServingQuantity">Quantity</label>
+          <input type="number" step="1" min="0"
+                 class="form-control" id="productServingQuantity" placeholder="Quantity"
+                 formControlName="quantity">
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="form-group" formGroupName="servingInformation">
+          <label for="productServingUnit">Unit</label>
+          <input type="text"
+                 class="form-control" id="productServingUnit" placeholder="Unit"
+                 formControlName="unit">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="servingInformation">
+          <label for="productServingWeightGrams">Weight in grams</label>
+          <input type="number" step="1" min="0"
+                 class="form-control" id="productServingWeightGrams" placeholder="Weight in grams"
+                 formControlName="weightGrams">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+echo Exporting distributives to Nutrition Buddy Web - wwwroot...
+xcopy "dist\*" "D:\TFS\NutritionBuddy\NutritionBuddy.Web\wwwroot" /Y /S /I
+echo Ready!

@@ -1,0 +1,99 @@
+<div [formGroup]="form">
+  <div class="form-group-tile">
+    <div class="form-group-title">
+      <p>
+        Nutrition Facts
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-calories">Calories</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-calories" placeholder="Calories"
+                 formControlName="calories">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-totalFat">Total Fat</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-totalFat" placeholder="Total Fat"
+                 formControlName="totalFat_Grams">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-saturatedFat">Saturated Fat</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-saturatedFat"
+                 placeholder="Saturated Fat"
+                 formControlName="saturatedFat_Grams">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-cholesterol">Cholesterol</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-cholesterol"
+                 placeholder="Cholesterol"
+                 formControlName="cholesterol_MilliGrams">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-sodium">Sodium</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-sodium" placeholder="Sodium"
+                 formControlName="sodium_MilliGrams">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-totalCarbohydrate">Total Carbs</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-totalCarbohydrate"
+                 placeholder="Total Catbs"
+                 formControlName="totalCarbohydrate_Grams">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-dietaryFiber">Dietary Fiber</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-dietaryFiber"
+                 placeholder="Dietary Fiber"
+                 formControlName="dietaryFiber_Grams">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-sugars">Sugars</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-sugars" placeholder="Sugars"
+                 formControlName="sugars_Grams">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-protein">Protein</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-protein" placeholder="Protein"
+                 formControlName="protein_Grams">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-potassium">Potassium</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-potassium" placeholder="Potassium"
+                 formControlName="potassium_MilliGrams">
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-group" formGroupName="nutritionFacts">
+          <label for="nf-phosphorus">Phosphorus</label>
+          <input type="number" step="0.1" min="0" class="form-control" id="nf-phosphorus"
+                 placeholder="Phosphorus"
+                 formControlName="phosphorus_MilliGrams">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

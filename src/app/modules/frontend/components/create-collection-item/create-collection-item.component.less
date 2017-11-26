@@ -1,0 +1,70 @@
+@import "../../../../../styles/common";
+
+.create-collection-item-tile-wrap {
+
+  display: block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  border-radius: @nb-border-radius;
+  text-decoration: none;
+
+  .collection-tile-size;
+
+  background-color: @common-bg-color;
+
+  &:hover {
+
+    -webkit-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+
+    .create-collection-item-tile-text {
+      text-decoration: none !important;
+      display: inline-block;
+      max-width: @collection-tile-width;
+    }
+  }
+
+  .create-collection-item-tile-text-line-wrap {
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+
+    .text-line-wrap-size;
+
+    background-color: @text-line-wrap-color;
+
+    .create-collection-item-tile-text {
+      padding: 0 4px 0 14px;
+      font-size: @tile-text-size;
+      font-weight: 500;
+      color: @tile-text-color;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .icon-wrap {
+    position: relative;
+    top: 25px;
+    left: 6px;
+
+    height: 60px;
+    width: 100%;
+
+    margin: 0 auto;
+
+    .icon {
+      margin: 0 auto;
+      width: 60px;
+      height: 60px;
+
+      i {
+        font-size: @tile-icon-size;
+        color: @tile-icon-color;
+      }
+    }
+  }
+}

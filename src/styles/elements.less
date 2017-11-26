@@ -1,0 +1,114 @@
+@import "common.less";
+
+.toggle-button {
+  height: 40px;
+  width: 40px;
+
+  font-weight: 400;
+  font-size: 40px;
+
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  user-select: none;
+  border: 1px solid @common-border-color;
+
+  font-size: 1rem;
+  line-height: 1.5;
+
+  color: #fff;
+
+  border-radius: @nb-border-radius;
+  background-color: @common-btn-color;
+}
+
+.edit-form-wrapper {
+
+}
+
+.form-group-tile-container {
+  padding: 10px;
+  background-color: fade(@common-bg-color, 60%);
+  // /background-color: fade(@common-bg-color, 60%);
+}
+
+.form-group-title {
+
+  margin-bottom: 10px;
+  p {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+.form-group-tile {
+
+  //.form-group-tile-size;
+
+  //float: left;
+  background-color: @common-bg-color;
+
+  padding: 10px 10px 10px 10px;
+  margin: 0px 0px 15px 0px;
+}
+
+.form-submit-button {
+  margin-top: 20px;
+}
+
+.image-thumbnail-wrapper {
+  position: relative;
+
+  height: 100%;
+  width: auto;
+
+  margin: 0 auto;
+
+  .image-thumbnail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+
+    -webkit-border-radius: @nb-border-radius;
+    -moz-border-radius: @nb-border-radius;
+    border-radius: @nb-border-radius;
+
+    border: 1px solid #ced4da;
+  }
+
+  .image-thumbnail-int {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+
+    -webkit-border-radius: @nb-border-radius;
+    -moz-border-radius: @nb-border-radius;
+    border-radius: @nb-border-radius;
+
+    border: 1px solid #ced4da;
+
+    &:hover {
+      border-color: #547bd3;
+      box-shadow: 0 0 0 0.1rem rgba(84, 123, 211, 0.6);
+      border-radius: @nb-border-radius;
+    }
+  }
+}

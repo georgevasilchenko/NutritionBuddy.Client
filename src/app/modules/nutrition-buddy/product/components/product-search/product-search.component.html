@@ -1,0 +1,24 @@
+<div class="base-collection-wrapper">
+  <div class="row">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..."
+             [(ngModel)]='searchQuery'
+             (keypress)="onInstantSearch($event)"
+             aria-label="Search for...">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <ng-template #collectionItemsContainer></ng-template>
+    <fw-create-collection-item
+      *ngIf="createCollectionItemModel"
+      [model]="createCollectionItemModel"></fw-create-collection-item>
+  </div>
+  <div class="row">
+    <button *ngIf="model && model.length > 1"
+            class="btn btn-primary"
+            type="button"
+            (click)="saveAll()">Save all
+    </button>
+  </div>
+</div>

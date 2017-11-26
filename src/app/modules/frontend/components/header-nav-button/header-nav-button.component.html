@@ -1,0 +1,11 @@
+<a class="header-nav-button-wrapper"
+   [ngStyle]="{'background-color': model.tileColor}"
+   href=#
+   [routerLink]="model.tileNavigationPath"
+   (click)="onClick()">
+  <div class="header-nav-button">
+    <div class="nav-button-icon">
+      <i class='material-icons'>{{model.tileIconSelectorText}}</i>
+    </div>
+  </div>
+</a>

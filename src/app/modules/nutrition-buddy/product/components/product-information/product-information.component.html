@@ -1,0 +1,28 @@
+<div [formGroup]="form">
+  <div class="form-group-tile">
+    <div class="form-group-title"><p>Product Information</p></div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group" formGroupName="productInformation">
+          <label for="productName">Name</label>
+          <input type="text" class="form-control" id="productName" placeholder="Product Name"
+                 formControlName="productName">
+        </div>
+
+        <div class="form-group" formGroupName="productInformation">
+          <label for="productBrandName">Brand</label>
+          <input type="text" class="form-control" id="productBrandName" placeholder="Product Brand"
+                 formControlName="brandName">
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="image-thumbnail-wrapper">
+          <img *ngIf="model && model && model.imageUriHighres"
+               [src]="model.imageUriHighres"
+               alt="product image"
+               class="image-thumbnail">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

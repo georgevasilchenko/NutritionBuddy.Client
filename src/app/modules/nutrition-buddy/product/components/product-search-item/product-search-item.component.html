@@ -1,0 +1,39 @@
+<a href="#" routerLink="../edit">
+  <div class="card">
+    <!-- Header -->
+    <div class="card-header">
+      <h5>{{product.productName}}</h5>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!-- Content -->
+        <div class="card-block">
+          <!-- Nutrition facts -->
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Calories
+              <span class="badge badge-primary badge-pill">{{product.macroTotals.calories}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Carbs
+              <span class="badge badge-primary badge-pill">{{product.macroTotals.carbohydrates}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Fats
+              <span class="badge badge-primary badge-pill">{{product.macroTotals.fats}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Proteins
+              <span class="badge badge-primary badge-pill">{{product.macroTotals.proteins}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Image -->
+        <img *ngIf="product && product.productInformation" class="rounded float-right product-card-img"
+             src={{product.productInformation.imageUriThumb}} alt="product card image">
+      </div>
+    </div>
+  </div>
+</a>

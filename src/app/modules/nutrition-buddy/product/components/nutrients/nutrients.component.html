@@ -1,0 +1,830 @@
+<div [formGroup]="form">
+  <div class="form-group-tile">
+    <!--Button-->
+    <div class="form-group-title">
+      <p>
+        Nutrients
+        <button mat-icon-button
+                type="button"
+                class="float-right"
+                data-toggle="modal" data-target="#nutrientsModal">
+          <mat-icon aria-label="Open Nutrients in a dialog">open_in_new</mat-icon>
+        </button>
+      </p>
+    </div>
+
+    <!--Modal-->
+    <div class="modal fade" id="nutrientsModal" tabindex="-1" role="dialog"
+         aria-labelledby="nutrientsModalLabel"
+         aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="nutrientsModalLabel">Nutrients</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_adjustedProtein" class="col-form-label-sm">Adjusted Protein (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_adjustedProtein" placeholder="value"
+                           formControlName="adjustedProtein_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fattyAcids" class="col-form-label-sm">Fatty Acids (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fattyAcids" placeholder="value"
+                           formControlName="fattyAcids_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_lutein" class="col-form-label-sm">Lutein (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_lutein"
+                           placeholder="value"
+                           formControlName="lutein_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_sucrosel" class="col-form-label-sm">Sucrosel (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_sucrosel" placeholder="value"
+                           formControlName="sucrosel_Grams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_alanine" class="col-form-label-sm">Alanine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_alanine"
+                           placeholder="value"
+                           formControlName="alanine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fattyAcidsSaturated" class="col-form-label-sm">Fatty Acids Saturated
+                      (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fattyAcidsSaturated" placeholder="value"
+                           formControlName="fattyAcidsSaturated_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_lycopene" class="col-form-label-sm">Lycopene (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_lycopene" placeholder="value"
+                           formControlName="lycopene_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_theobromine" class="col-form-label-sm">Theobromine (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_theobromine" placeholder="value"
+                           formControlName="theobromine_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_alcohol" class="col-form-label-sm">Alcohol (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_alcohol"
+                           placeholder="value"
+                           formControlName="alcohol_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fattyAcidsTotalMonosaturated" class="col-form-label-sm">Fatty Acids Total
+                      Monosaturated (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fattyAcidsTotalMonosaturated" placeholder="value"
+                           formControlName="fattyAcidsTotalMonosaturated_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_lysine" class="col-form-label-sm">Lysine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_lysine"
+                           placeholder="value"
+                           formControlName="lysine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_thiamin" class="col-form-label-sm">Thiamin (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_thiamin"
+                           placeholder="value"
+                           formControlName="thiamin_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_arginine" class="col-form-label-sm">Arginine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_arginine" placeholder="value"
+                           formControlName="arginine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fattyAcidsTotalPolysaturated" class="col-form-label-sm">Fatty Acids Total
+                      Polysaturated (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fattyAcidsTotalPolysaturated" placeholder="value"
+                           formControlName="fattyAcidsTotalPolysaturated_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_magnesium" class="col-form-label-sm">Magnesium (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_magnesium" placeholder="value"
+                           formControlName="magnesium_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_threonine" class="col-form-label-sm">Threonine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_threonine" placeholder="value"
+                           formControlName="threonine_Grams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_ash" class="col-form-label-sm">Ash (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_ash"
+                           placeholder="value"
+                           formControlName="ash_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fattyAcidsTotalTransMonoenoic" class="col-form-label-sm">Fatty Acids
+                      Total
+                      Trans Monoenoic (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fattyAcidsTotalTransMonoenoic" placeholder="value"
+                           formControlName="fattyAcidsTotalTransMonoenoic_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_maltose" class="col-form-label-sm">Maltose (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_maltose"
+                           placeholder="value"
+                           formControlName="maltose_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_tocopherolBeta" class="col-form-label-sm">Tocopherol Beta (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_tocopherolBeta" placeholder="value"
+                           formControlName="tocopherolBeta_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_asparticAcid" class="col-form-label-sm">Aspartic Acid (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_asparticAcid" placeholder="value"
+                           formControlName="asparticAcid_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fattyAcidsTotalTransPolyenoic" class="col-form-label-sm">Fatty Acids
+                      Total
+                      Trans Polyenoic (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fattyAcidsTotalTransPolyenoic" placeholder="value"
+                           formControlName="fattyAcidsTotalTransPolyenoic_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_manganese" class="col-form-label-sm">Manganese (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_manganese" placeholder="value"
+                           formControlName="manganese_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_tocopherolDelta" class="col-form-label-sm">Tocopherol Delta (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_tocopherolDelta" placeholder="value"
+                           formControlName="tocopherolDelta_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_betaine" class="col-form-label-sm">Betaine (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_betaine"
+                           placeholder="value"
+                           formControlName="betaine_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fiber" class="col-form-label-sm">Fiber (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fiber"
+                           placeholder="value"
+                           formControlName="fiber_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_menaquinone4" class="col-form-label-sm">Menaquinone 4 (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_menaquinone4" placeholder="value"
+                           formControlName="menaquinone4_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_tocopherolGamma" class="col-form-label-sm">Tocopherol Gamma (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_tocopherolGamma" placeholder="value"
+                           formControlName="tocopherolGamma_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_betaSitosterol" class="col-form-label-sm">Beta Sitosterol (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_betaSitosterol" placeholder="value"
+                           formControlName="betaSitosterol_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fluoride" class="col-form-label-sm">Fluoride (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fluoride" placeholder="value"
+                           formControlName="fluoride_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_methionine" class="col-form-label-sm">Methionine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_methionine" placeholder="value"
+                           formControlName="methionine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_tryptophan" class="col-form-label-sm">Tryptophan (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_tryptophan" placeholder="value"
+                           formControlName="tryptophan_Grams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_caffeine" class="col-form-label-sm">Caffeine (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_caffeine" placeholder="value"
+                           formControlName="caffeine_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_folate" class="col-form-label-sm">Folate (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_folate"
+                           placeholder="value"
+                           formControlName="folate_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_niacin" class="col-form-label-sm">Niacin (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_niacin"
+                           placeholder="value"
+                           formControlName="niacin_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_tyrosine" class="col-form-label-sm">Tyrosine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_tyrosine" placeholder="value"
+                           formControlName="tyrosine_Grams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_calcium" class="col-form-label-sm">Calcium (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_calcium"
+                           placeholder="value"
+                           formControlName="calcium_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_folateDFE" class="col-form-label-sm">Folate DFE (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_folateDFE" placeholder="value"
+                           formControlName="folateDFE_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_omega3AlphaLinolenicAcid" class="col-form-label-sm">Omega 3 Alpha
+                      Linolenic
+                      Acid (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_omega3AlphaLinolenicAcid" placeholder="value"
+                           formControlName="omega3AlphaLinolenicAcid_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_valine" class="col-form-label-sm">Valine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_valine"
+                           placeholder="value"
+                           formControlName="valine_Grams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_campesterol" class="col-form-label-sm">Campesterol (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_campesterol" placeholder="value"
+                           formControlName="campesterol_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_folicAcid" class="col-form-label-sm">Folic Acid (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_folicAcid" placeholder="value"
+                           formControlName="folicAcid_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_omega3DocosahexaenoicAcid" class="col-form-label-sm">Omega 3
+                      Docosahexaenoic
+                      Acid (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_omega3DocosahexaenoicAcid" placeholder="value"
+                           formControlName="omega3DocosahexaenoicAcid_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminA" class="col-form-label-sm">Vitamin A (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminA" placeholder="value"
+                           formControlName="vitaminA_MicroGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_carbohydrate" class="col-form-label-sm">Carbohydrate (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_carbohydrate" placeholder="value"
+                           formControlName="carbohydrate_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fructose" class="col-form-label-sm">Fructose (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fructose" placeholder="value"
+                           formControlName="fructose_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_omega3EicosapentaenoicAcid" class="col-form-label-sm">Omega 3
+                      Eicosapentaenoic
+                      Acid (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_omega3EicosapentaenoicAcid" placeholder="value"
+                           formControlName="omega3EicosapentaenoicAcid_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminB12" class="col-form-label-sm">Vitamin B12 (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminB12" placeholder="value"
+                           formControlName="vitaminB12_MicroGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_caroteneAlpha" class="col-form-label-sm">Carotene Alpha (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_caroteneAlpha" placeholder="value"
+                           formControlName="caroteneAlpha_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_galactose" class="col-form-label-sm">Galactose (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_galactose" placeholder="value"
+                           formControlName="galactose_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_pantothenicAcid" class="col-form-label-sm">Pantothenic Acid (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_pantothenicAcid" placeholder="value"
+                           formControlName="pantothenicAcid_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminB6" class="col-form-label-sm">Vitamin B6 (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminB6" placeholder="value"
+                           formControlName="vitaminB6_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_caroteneBeta" class="col-form-label-sm">Carotene Beta (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_caroteneBeta" placeholder="value"
+                           formControlName="caroteneBeta_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_glucose" class="col-form-label-sm">Glucose (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_glucose"
+                           placeholder="value"
+                           formControlName="glucose_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_phenylalanine" class="col-form-label-sm">Phenylalanine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_phenylalanine" placeholder="value"
+                           formControlName="phenylalanine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminC" class="col-form-label-sm">Vitamin C (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminC" placeholder="value"
+                           formControlName="vitaminC_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_choline" class="col-form-label-sm">Choline (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_choline"
+                           placeholder="value"
+                           formControlName="choline_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_glutamicAcid" class="col-form-label-sm">Glutamic Acid (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_glutamicAcid" placeholder="value"
+                           formControlName="glutamicAcid_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_phytosterols" class="col-form-label-sm">Phytosterols (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_phytosterols" placeholder="value"
+                           formControlName="phytosterols_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminD" class="col-form-label-sm">Vitamin D (IU)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminD" placeholder="value"
+                           formControlName="vitaminD_International">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_copper" class="col-form-label-sm">Copper (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_copper"
+                           placeholder="value"
+                           formControlName="copper_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_glycine" class="col-form-label-sm">Glycine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_glycine"
+                           placeholder="value"
+                           formControlName="glycine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_proline" class="col-form-label-sm">Proline (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_proline"
+                           placeholder="value"
+                           formControlName="proline_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminD2" class="col-form-label-sm">Vitamin D2 (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminD2" placeholder="value"
+                           formControlName="vitaminD2_MicroGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_cryptoxanthin" class="col-form-label-sm">Cryptoxanthin (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_cryptoxanthin" placeholder="value"
+                           formControlName="cryptoxanthin_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_histidine" class="col-form-label-sm">Histidine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_histidine" placeholder="value"
+                           formControlName="histidine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_retinol" class="col-form-label-sm">Retinol (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_retinol"
+                           placeholder="value"
+                           formControlName="retinol_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminD2D3" class="col-form-label-sm">Vitamin D2D3 (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminD2D3" placeholder="value"
+                           formControlName="vitaminD2D3_MicroGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_cystine" class="col-form-label-sm">Cystine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_cystine"
+                           placeholder="value"
+                           formControlName="cystine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_hydroxyproline" class="col-form-label-sm">Hydroxyproline (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_hydroxyproline" placeholder="value"
+                           formControlName="hydroxyproline_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_riboflavin" class="col-form-label-sm">Riboflavin (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_riboflavin" placeholder="value"
+                           formControlName="riboflavin_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminD3" class="col-form-label-sm">Vitamin D3 (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminD3" placeholder="value"
+                           formControlName="vitaminD3_MicroGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_dihydrophylloquinone" class="col-form-label-sm">Dihydrophylloquinone
+                      (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_dihydrophylloquinone" placeholder="value"
+                           formControlName="dihydrophylloquinone_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_iron" class="col-form-label-sm">Iron (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_iron"
+                           placeholder="value"
+                           formControlName="iron_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_selenium" class="col-form-label-sm">Selenium (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_selenium" placeholder="value"
+                           formControlName="selenium_MicroGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminE" class="col-form-label-sm">Vitamin E (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminE" placeholder="value"
+                           formControlName="vitaminE_MilliGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_energyCal" class="col-form-label-sm">Energy Cal (kcal)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_energyCal" placeholder="value"
+                           formControlName="energyCal_KiloCalories">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_isoleucine" class="col-form-label-sm">Isoleucine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_isoleucine" placeholder="value"
+                           formControlName="isoleucine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_serine" class="col-form-label-sm">Serine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_serine"
+                           placeholder="value"
+                           formControlName="serine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_vitaminK" class="col-form-label-sm">Vitamin K (µg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_vitaminK" placeholder="value"
+                           formControlName="vitaminK_MicroGrams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_energyKj" class="col-form-label-sm">Energy Kj (kJ)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_energyKj" placeholder="value"
+                           formControlName="energyKj_KiloJoules">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_lactose" class="col-form-label-sm">Lactose (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_lactose"
+                           placeholder="value"
+                           formControlName="lactose_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_starch" class="col-form-label-sm">Starch (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_starch"
+                           placeholder="value"
+                           formControlName="starch_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_water" class="col-form-label-sm">Water (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_water"
+                           placeholder="value"
+                           formControlName="water_Grams">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_fat" class="col-form-label-sm">Fat (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_fat"
+                           placeholder="value"
+                           formControlName="fat_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_leucine" class="col-form-label-sm">Leucine (mg)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_leucine"
+                           placeholder="value"
+                           formControlName="leucine_Grams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_stigmasterol" class="col-form-label-sm">Stigmasterol (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_stigmasterol" placeholder="value"
+                           formControlName="stigmasterol_MilliGrams">
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="form-group" formGroupName="nutrients">
+                    <label for="nutrient_zinc" class="col-form-label-sm">Zinc (g)</label>
+                    <input type="number" step="0.01" min="0" class="form-control  form-control-sm"
+                           id="nutrient_zinc"
+                           placeholder="value"
+                           formControlName="zinc_MilliGrams">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block btn-primary" data-dismiss="modal">Save & Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

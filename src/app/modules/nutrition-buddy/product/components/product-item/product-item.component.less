@@ -1,0 +1,85 @@
+@import "../../../../../../styles/common";
+
+.collection-tile-wrap {
+
+  display: block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+
+  border-radius: @nb-border-radius;
+  text-decoration: none;
+
+  .collection-tile-size;
+
+  background-color: @common-bg-color;
+
+  &:hover {
+
+    -webkit-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.5);
+
+    .collection-tile-text {
+      text-decoration: none !important;
+      display: inline-block;
+      max-width: @collection-tile-width;
+    }
+  }
+
+  table {
+    position: relative;
+    top: 25px;
+    height: 100px;
+    margin: 10px;
+
+    // thumbnail cell
+    #thumbnail-cell {
+      max-width: 100px;
+    }
+
+    tr td:not(#thumbnail-cell) {
+
+      font-size: @collection-tile-content-text-size;
+      font-weight: 100;
+
+      color: #000000;
+    }
+
+    .tb-key {
+      width: 99%;
+      text-align: right;
+    }
+    .tb-value {
+      text-align: left;
+      font-weight: bold !important;
+    }
+  }
+
+  .product-thumb-img {
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 2px;
+
+    .collection-tile-thumbnail-size;
+  }
+
+  .collection-tile-text-line-wrap {
+    position: relative;
+    top: 20px;
+    margin: 0 auto;
+
+    .text-line-wrap-size;
+
+    background-color: @text-line-wrap-color;
+
+    .collection-tile-text {
+      padding: 0 4px 0 14px;
+      font-size: @tile-text-size;
+      font-weight: 500;
+      color: @tile-text-color;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}
