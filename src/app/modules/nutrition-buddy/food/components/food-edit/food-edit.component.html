@@ -1,0 +1,100 @@
+<div class="row justify-content-start">
+  <div class="col">
+    <div class="edit-form-wrapper">
+      <form [formGroup]="form"
+            *ngIf="form"
+            (ngSubmit)="onSubmit(form)">
+
+        <div class="form-group-tile-container">
+          <!--Sections-->
+          <div class="row">
+            <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12">
+              <div class="form-group-tile">
+                <div class="form-group-title"><p>General</p></div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="foodName">Name</label>
+                      <input required type="text" class="form-control" id="foodName" placeholder="Name"
+                             formControlName="name">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">
+                    <div class="form-group">
+                      <label for="foodDescription">Description</label>
+                      <textarea type="text" class="form-control" id="foodDescription" placeholder="Description"
+                                formControlName="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="foodType">Type</label>
+                      <input type="text" class="form-control" id="foodType" placeholder="Type"
+                             formControlName="type">
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="image-thumbnail-wrapper">
+                      <fw-file-image [model]="model.foodImage"
+                                     (onFileDialogFileChanged)="onFileImageFileChanged($event)"
+                                     [id]="'food-edit-image'">
+                      </fw-file-image>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="food-url">URL</label>
+                      <input type="text" class="form-control" id="food-url" placeholder="URL"
+                             formControlName="url">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col col-xl-6 col-lg-6 col-md-12 col-sm-12">
+              <f-food-serving-edit [model]="model.serving"
+                                   [form]="form">
+              </f-food-serving-edit>
+            </div>
+          </div>
+          <!--Sumbit-->
+          <button type="submit" class="btn btn-block btn-primary form-submit-button"
+                  [disabled]="!form.valid">Save Changes
+          </button>
+          <!--Delete Action-->
+          <button type="button"
+                  *ngIf="!isCreate"
+                  class="btn btn-block btn-primary"
+                  data-toggle="modal" data-target="#deleteModal">Delete
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Delete Modal-->
+<div *ngIf="model"
+     class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+     aria-labelledby="labelDeleteModal"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Delete {{model.uniqueName}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this product?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" (click)="onDelete()" class="btn btn-block btn-primary">Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

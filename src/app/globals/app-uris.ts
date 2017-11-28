@@ -14,6 +14,16 @@ export class AppUris {
     return AppUris.RootUri + 'api/product/getbyid?id=' + id;
   }
 
+  // Food
+  static FoodGetAll = AppUris.RootUri + 'api/food/getall';
+  static FoodCreate = AppUris.RootUri + 'api/food/create';
+  static FoodUpdate = AppUris.RootUri + 'api/food/update';
+  static FoodDelete = AppUris.RootUri + 'api/food/delete';
+  static FoodSearch = AppUris.RootUri + 'api/food/search';
+  static FoodGetById = (id: number) => {
+    return AppUris.RootUri + 'api/food/getbyid?id=' + id;
+  }
+
   // Identity
   static UserAuthenticate = AppUris.RootUri + 'api/account/authenticate';
   static UserGetAll = AppUris.RootUri + 'api/account/getall';

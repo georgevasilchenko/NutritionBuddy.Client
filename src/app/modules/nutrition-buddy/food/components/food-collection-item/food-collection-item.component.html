@@ -1,0 +1,34 @@
+<a class="collection-tile-wrap"
+   href=#
+   (click)="onClick()"
+   [routerLink]="model.id > 0 ? '/food/edit/' + model.id : '/food/edit/'">
+  <div class="collection-tile-text-line-wrap">
+    <p class="collection-tile-text">{{model.name}}</p>
+  </div>
+  <table>
+    <tr>
+      <td rowspan="5" id="thumbnail-cell">
+        <img class="product-thumb-img"
+             *ngIf="model && model.foodImage"
+             [src]="model.foodImage.imageString"
+             alt="ProductImage">
+      </td>
+    </tr>
+    <tr>
+      <td class="tb-key">Calories:&nbsp;</td>
+      <td class="tb-value">{{model.serving.calories}}</td>
+    </tr>
+    <tr>
+      <td class="tb-key">Carbs:&nbsp;</td>
+      <td class="tb-value">{{model.serving.carbohydrate}}</td>
+    </tr>
+    <tr>
+      <td class="tb-key">Fats:&nbsp;</td>
+      <td class="tb-value">{{model.serving.fat}}</td>
+    </tr>
+    <tr>
+      <td class="tb-key">Proteins:&nbsp;</td>
+      <td class="tb-value">{{model.serving.protein}}</td>
+    </tr>
+  </table>
+</a>

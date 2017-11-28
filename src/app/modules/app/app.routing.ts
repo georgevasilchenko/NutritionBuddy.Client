@@ -17,6 +17,12 @@ const AppRoutes: Routes = [
   // Identity
   NutritionBuddyRouting.UserEdit,
 
+  // Food
+  NutritionBuddyRouting.FoodEdit,
+  NutritionBuddyRouting.FoodCreate,
+  NutritionBuddyRouting.FoodCollection,
+  NutritionBuddyRouting.FoodSearch,
+
   // Fall backs
   FrontendRouting.Default,
   FrontendRouting.PageNotFound

@@ -13,7 +13,9 @@ import {ColorsIds} from '../../../../globals/colors-ids';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
 import {UserRouteIds} from '../../../nutrition-buddy/identity/globals/user-route-ids';
 import {UserRouteNames} from '../../../nutrition-buddy/identity/globals/user-route-names';
-import {LocalStorageService} from "../../services/local-storage.service";
+import {LocalStorageService} from '../../services/local-storage.service';
+import {FoodRouteIds} from '../../../nutrition-buddy/food/globals/food-route-ids';
+import {FoodRouteNames} from '../../../nutrition-buddy/food/globals/food-route-names';
 
 @Component({
   selector: FrontendSelectorsIds.HomeSelector,
@@ -36,14 +38,14 @@ export class HomeComponent extends BaseCollectionComponent<Panel> implements OnI
   loadModel() {
     this.model = [];
 
-    const productPanel = this.createProductPanel();
+    const foodPanel = this.createFoodPanel();
     const accountPanel = this.createAccountPanel();
 
-    this.model.push(productPanel, accountPanel);
+    this.model.push(foodPanel, accountPanel);
   }
 
-  createProductPanel(): Panel {
-    const panel = new Panel('Product');
+  createFoodPanel(): Panel {
+    const panel = new Panel('Food');
     panel.addTile(
       new Tile(
         ProductRouteNames.ProductCollection,
@@ -56,6 +58,18 @@ export class HomeComponent extends BaseCollectionComponent<Panel> implements OnI
         IconsNames.Search,
         this._routingService.getNavigationOfRoute(ProductRouteIds.ProductSearch),
         ColorsIds.DarkTurquoise));
+    panel.addTile(
+      new Tile(
+        FoodRouteNames.FoodCollection,
+        IconsNames.ShoppingCart,
+        this._routingService.getNavigationOfRoute(FoodRouteIds.FoodCollection),
+        ColorsIds.ForestGreen));
+    panel.addTile(
+      new Tile(
+        FoodRouteNames.FoodSearch,
+        IconsNames.Search,
+        this._routingService.getNavigationOfRoute(FoodRouteIds.FoodSearch),
+        ColorsIds.DarkGray));
     return panel;
   }
 
