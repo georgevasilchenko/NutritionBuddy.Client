@@ -1,8 +1,13 @@
 export class AppUris {
   static Debug = true;
-  static DevUri = 'http://dev.nutritionbuddy.com/';
+  static PubUri = 'http://nutrition-buddy.azurewebsites.net/';
   static DbgUri = 'http://localhost:5000/';
-  static RootUri = AppUris.Debug ? AppUris.DbgUri : AppUris.DevUri;
+  static RootUri = AppUris.Debug ? AppUris.DbgUri : AppUris.PubUri;
+
+  // Data
+  static ImageDataGet = (uri: string) => {
+    return AppUris.RootUri + 'api/data/getimagedata?uri=' + uri;
+  };
 
   // Product
   static ProductGetAll = AppUris.RootUri + 'api/product/getall';
@@ -12,7 +17,7 @@ export class AppUris {
   static ProductSearch = AppUris.RootUri + 'api/product/search';
   static ProductGeById = (id: number) => {
     return AppUris.RootUri + 'api/product/getbyid?id=' + id;
-  }
+  };
 
   // Food
   static FoodGetAll = AppUris.RootUri + 'api/food/getall';
@@ -22,7 +27,17 @@ export class AppUris {
   static FoodSearch = AppUris.RootUri + 'api/food/search';
   static FoodGetById = (id: number) => {
     return AppUris.RootUri + 'api/food/getbyid?id=' + id;
-  }
+  };
+  static SearchFood = (request: any) => {
+    return AppUris.RootUri
+      + 'api/food/searchfood?value='
+      + request.value + '&maxresults='
+      + request.maxResults + '&pagenumber='
+      + request.pageNumber;
+  };
+  static SearchFoodDetails = (id: number) => {
+    return AppUris.RootUri + 'api/food/searchfooddetails?id=' + id;
+  };
 
   // Identity
   static UserAuthenticate = AppUris.RootUri + 'api/account/authenticate';
@@ -33,7 +48,7 @@ export class AppUris {
   static UserUploadImage = AppUris.RootUri + 'api/account/setuserimage';
   static UserDownloadImage = (id: string) => {
     return AppUris.RootUri + 'api/account/getuserimagestring?id=' + id;
-  }
+  };
   static UserGeById = (id: string) => {
     return AppUris.RootUri + 'api/account/getbyid?id=' + id;
   }

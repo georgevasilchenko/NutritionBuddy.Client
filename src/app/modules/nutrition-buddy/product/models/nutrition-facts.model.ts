@@ -1,7 +1,6 @@
-import {IEntity, IFormConfigurable} from '../../../frontend/models/entity.model';
-import {Validators} from '@angular/forms';
+import {IEntity} from '../../../frontend/models/entity.model';
 
-export interface INutritionFacts extends IEntity, IFormConfigurable {
+export interface INutritionFacts extends IEntity {
   calories: number;
   totalFat_Grams: number;
   saturatedFat_Grams: number;
@@ -15,7 +14,7 @@ export interface INutritionFacts extends IEntity, IFormConfigurable {
   phosphorus_MilliGrams: number;
 }
 
-export class NutritionFacts implements INutritionFacts, IFormConfigurable {
+export class NutritionFacts implements INutritionFacts {
   id = 0;
   calories = 0;
   totalFat_Grams = 0;
@@ -43,21 +42,5 @@ export class NutritionFacts implements INutritionFacts, IFormConfigurable {
       this.potassium_MilliGrams = spec.potassium_MilliGrams;
       this.phosphorus_MilliGrams = spec.phosphorus_MilliGrams;
     }
-  }
-
-  getFormConfig(builder: any): any {
-    return {
-      calories: [this.calories, [Validators.required, Validators.min(0)]],
-      totalFat_Grams: [this.totalFat_Grams, [Validators.required, Validators.min(0)]],
-      saturatedFat_Grams: [this.saturatedFat_Grams],
-      cholesterol_MilliGrams: [this.cholesterol_MilliGrams],
-      sodium_MilliGrams: [this.sodium_MilliGrams],
-      totalCarbohydrate_Grams: [this.totalCarbohydrate_Grams, [Validators.required, Validators.min(0)]],
-      dietaryFiber_Grams: [this.dietaryFiber_Grams],
-      sugars_Grams: [this.sugars_Grams],
-      protein_Grams: [this.protein_Grams, [Validators.required, Validators.min(0)]],
-      potassium_MilliGrams: [this.totalCarbohydrate_Grams],
-      phosphorus_MilliGrams: [this.phosphorus_MilliGrams]
-    };
   }
 }

@@ -7,6 +7,7 @@ import {BaseCollectionComponent} from '../../../../frontend/components/base-coll
 import {BaseComponent} from '../../../../frontend/components/base-component/base.component';
 import {ProductItemComponent} from '../product-item/product-item.component';
 import {ComponentFactoryService} from '../../../../frontend/services/component-factory.service';
+import {ProductSearchItemComponent} from '../product-search-item/product-search-item.component';
 
 @Component({
   selector: ProductSelectorsIds.ProductSearchSelector,
@@ -20,7 +21,7 @@ export class ProductSearchComponent extends BaseCollectionComponent<Product> imp
 
   constructor(protected _productService: ProductRepositoryService,
               protected _factoryService: ComponentFactoryService<Product, BaseComponent<Product>>) {
-    super(_productService, _factoryService, ProductItemComponent, undefined);
+    super(_productService, _factoryService, ProductSearchItemComponent, undefined);
   }
 
   ngOnInit() {

@@ -14,6 +14,9 @@ export class FileImage implements IFileImage {
   contentType: string;
 
   get imageString(): string {
+    if (!this.contentType || !this.fileContentBase64) {
+      return undefined;
+    }
     return 'data:' + this.contentType + ';base64,' + this.fileContentBase64;
   }
 

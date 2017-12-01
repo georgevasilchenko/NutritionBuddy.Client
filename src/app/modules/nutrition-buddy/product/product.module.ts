@@ -40,7 +40,7 @@ import {NutrientsComponent} from './components/nutrients/nutrients.component';
   ],
   exports: [ProductCollectionComponent],
   providers: [ProductRepositoryService, ProductFormConfigService],
-  entryComponents: [ProductItemComponent]
+  entryComponents: [ProductItemComponent, ProductSearchItemComponent]
 })
 export class ProductModule {
 }

@@ -8,11 +8,6 @@ import {UserRouteNames} from './identity/globals/user-route-names';
 import {ProductEditComponent} from './product/components/product-edit/product-edit.component';
 import {ProductSearchComponent} from './product/components/product-search/product-search.component';
 import {UserEditComponent} from './identity/components/user-edit/user-edit.component';
-import {FoodRouteIds} from './food/globals/food-route-ids';
-import {FoodRouteNames} from './food/globals/food-route-names';
-import {FoodSearchComponent} from './food/components/food-search/food-search.component';
-import {FoodCollectionComponent} from './food/components/food-collection/food-collection.component';
-import {FoodEditComponent} from './food/components/food-edit/food-edit.component';
 
 export class NutritionBuddyRouting {
 
@@ -68,47 +63,4 @@ export class NutritionBuddyRouting {
       navigation: '/account/edit/'
     },
   };
-
-  static FoodEdit: Route = <Route>{
-    path: 'food/edit/:id',
-    component: FoodEditComponent,
-    canActivate: [AuthGuardService],
-    data: {
-      routeId: FoodRouteIds.FoodEdit,
-      title: FoodRouteNames.FoodEdit,
-      navigation: '/food/edit'
-    },
-  };
-  static FoodCreate: Route = <Route>{
-    path: 'food/edit',
-    component: FoodEditComponent,
-    canActivate: [AuthGuardService],
-    data: {
-      routeId: FoodRouteIds.FoodCreate,
-      title: FoodRouteNames.FoodCreate,
-      navigation: '/food/edit',
-      model: {}
-    },
-  };
-  static FoodCollection: Route = <Route>{
-    path: 'food/select',
-    component: FoodCollectionComponent,
-    canActivate: [AuthGuardService],
-    data: {
-      routeId: FoodRouteIds.FoodCollection,
-      title: FoodRouteNames.FoodCollection,
-      navigation: '/food/select'
-    },
-  };
-  static FoodSearch: Route = <Route>{
-    path: 'food/search',
-    component: FoodSearchComponent,
-    canActivate: [AuthGuardService],
-    data: {
-      routeId: FoodRouteIds.FoodSearch,
-      title: FoodRouteNames.FoodSearch,
-      navigation: '/food/search'
-    },
-  };
-
 }
