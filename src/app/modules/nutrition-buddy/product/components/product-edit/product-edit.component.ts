@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
-import {Product} from '../../models/product.model';
+import {IProduct, Product} from '../../models/product.model';
 import {FormGroup} from '@angular/forms';
 import {ProductFormConfigService} from '../../services/product-form-config.service';
 import {ActivatedRoute} from '@angular/router';
@@ -9,6 +9,7 @@ import {RoutingService} from '../../../../frontend/services/routing.service';
 import {ProductRouteIds} from '../../globals/product-route-ids';
 import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
 import {BaseEditComponent} from '../../../../frontend/components/base-edit/base-edit.component';
+import {FileImage} from '../../../../frontend/models/file-image.model';
 
 @Component({
   selector: ProductSelectorsIds.ProductEditSelector,
@@ -37,17 +38,24 @@ export class ProductEditComponent extends BaseEditComponent<Product> implements 
           that.model = new Product(result);
           that.onLoadModelComplete();
         });
-    } else if (this._localStorageService.hasKey('product')) {
+    } else if (this._localStorageService.hasKey(this._localStorageService.__PROD_KEY)) {
       this.isCreate = true;
-      const modelMessage = JSON.parse(this._localStorageService.getValue('product')) as Product;
-      this.model = new Product(modelMessage);
-      this._localStorageService.removeKey('product');
+      const modelMessage = JSON.parse(this._localStorageService.getValue(this._localStorageService.__PROD_KEY));
+      const productSpec = <IProduct>modelMessage;
+      this.model = new Product(productSpec);
+      this._localStorageService.removeKey(this._localStorageService.__PROD_KEY);
       this.onLoadModelComplete();
     } else {
       this.isCreate = true;
       this.model = new Product();
+      this.model.productImage.setDefaultData();
       this.onLoadModelComplete();
     }
+  }
+
+  onFileImageFileChanged(event: FileImage): void {
+    this.model.productImage = event;
+    this.form.markAsDirty();
   }
 
   onLoadModelComplete() {

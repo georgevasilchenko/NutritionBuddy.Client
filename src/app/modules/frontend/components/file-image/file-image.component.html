@@ -2,7 +2,7 @@
   <img *ngIf="model"
        (click)="openFileDialog()"
        id="imageId"
-       [src]="model ? (model.getImageString() | safeHtml) : altImageSource"
+       [src]="model ? (model.imageString | safeHtml) : altImageSource"
        alt="user image"
        class="image-thumbnail-int">
   <input #fileSelector style="visibility: hidden;"

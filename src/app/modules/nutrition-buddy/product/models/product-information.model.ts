@@ -1,8 +1,7 @@
 import {IProductInformation} from './product-information.model';
-import {IEntity, IFormConfigurable} from '../../../frontend/models/entity.model';
-import {Validators} from '@angular/forms';
+import {IEntity} from '../../../frontend/models/entity.model';
 
-export interface IProductInformation extends IEntity, IFormConfigurable {
+export interface IProductInformation extends IEntity {
   brandName: string;
   consumedAt: Date;
   imageUriHighres: string;
@@ -44,21 +43,5 @@ export class ProductInformation implements IProductInformation {
       this.source = spec.source;
       this.upc = spec.upc;
     }
-  }
-
-  getFormConfig(builder: any): any {
-    return {
-      brandName: [this.brandName],
-      consumedAt: [this.consumedAt],
-      imageUriHighres: [this.imageUriHighres],
-      imageUriThumb: [this.imageUriThumb],
-      internalBrandId: [this.internalBrandId],
-      internalBrandName: [this.internalBrandName],
-      internalItemId: [this.internalItemId],
-      internalItemName: [this.internalItemName],
-      productName: [this.productName, Validators.required],
-      source: [this.source],
-      upc: [this.upc]
-    };
   }
 }

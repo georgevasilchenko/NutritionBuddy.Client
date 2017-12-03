@@ -1,7 +1,6 @@
 <a class="collection-tile-wrap"
    href=#
-   (click)="onClick()"
-   [routerLink]="model.id > 0 ? '/product/edit/' + model.id : '/product/edit/'">
+   [routerLink]="'/product/edit/' + model.id">
   <div class="collection-tile-text-line-wrap">
     <p class="collection-tile-text">{{model.uniqueName}}</p>
   </div>
@@ -9,8 +8,8 @@
     <tr>
       <td rowspan="5" id="thumbnail-cell">
         <img class="product-thumb-img"
-             *ngIf="model && model.productInformation.imageUriThumb"
-             [src]="model.productInformation.imageUriThumb"
+             *ngIf="model && model.productImage.imageString"
+             [src]="model.productImage.imageString"
              alt="ProductImage">
       </td>
     </tr>

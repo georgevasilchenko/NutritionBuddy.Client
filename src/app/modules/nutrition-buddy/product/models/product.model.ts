@@ -4,6 +4,7 @@ import {INutrients, Nutrients} from './nutrients.model';
 import {IServingInformation, ServingInformation} from './serving-information.model';
 import {IMacroTotals, MacroTotals} from './macro-totals.model';
 import {IEntity} from '../../../frontend/models/entity.model';
+import {FileImage, IFileImage} from '../../../frontend/models/file-image.model';
 
 export interface IProduct extends IEntity {
   id: number;
@@ -13,16 +14,18 @@ export interface IProduct extends IEntity {
   nutrients: INutrients;
   servingInformation: IServingInformation;
   macroTotals: IMacroTotals;
+  productImage: IFileImage;
 }
 
 export class Product implements IProduct {
   id: number;
   uniqueName: string;
-  productInformation: IProductInformation;
-  nutritionFacts: INutritionFacts;
-  nutrients: INutrients;
-  servingInformation: IServingInformation;
-  macroTotals: IMacroTotals;
+  productInformation: ProductInformation;
+  nutritionFacts: NutritionFacts;
+  nutrients: Nutrients;
+  servingInformation: ServingInformation;
+  macroTotals: MacroTotals;
+  productImage: FileImage;
 
   constructor(spec?: IProduct) {
     this.id = spec ? spec.id : 0;
@@ -32,6 +35,7 @@ export class Product implements IProduct {
     this.servingInformation = new ServingInformation();
     this.macroTotals = new MacroTotals();
     this.nutrients = new Nutrients();
+    this.productImage = new FileImage();
 
     if (spec) {
       this.uniqueName = spec.uniqueName;
@@ -50,6 +54,9 @@ export class Product implements IProduct {
       }
       if (spec.nutrients) {
         this.nutrients = new Nutrients(spec.nutrients);
+      }
+      if (spec.productImage) {
+        this.productImage = new FileImage(spec.productImage);
       }
     }
   }

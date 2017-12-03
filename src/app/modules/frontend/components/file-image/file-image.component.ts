@@ -31,7 +31,6 @@ export class FileImageComponent extends BaseComponent<FileImage> implements OnIn
   }
 
   ngOnInit() {
-
   }
 
   openFileDialog() {

@@ -28,7 +28,7 @@
 }
 
 .edit-form-wrapper {
-
+  margin-bottom: 10px;
 }
 
 .form-group-tile-container {
@@ -37,9 +37,13 @@
   // /background-color: fade(@common-bg-color, 60%);
 }
 
-.form-group-title {
+.form-group-tile {
+  border-radius: @nb-border-radius;
+  background-color: @common-bg-color;
 
-  margin-bottom: 10px;
+  padding: 10px 10px 10px 10px;
+  margin: 0px 0px 10px 0px;
+
   p {
     color: black;
     font-size: 20px;
@@ -47,15 +51,17 @@
   }
 }
 
-.form-group-tile {
-
-  //.form-group-tile-size;
-
-  //float: left;
-  background-color: @common-bg-color;
+.form-group-tile-transparent {
+  background-color: transparent;
 
   padding: 10px 10px 10px 10px;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 0px 10px 0px;
+
+  p {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+  }
 }
 
 .form-submit-button {

@@ -43,13 +43,13 @@ export class NutritionBuddyRouting {
     },
   };
   static ProductSearch: Route = <Route>{
-    path: 'product/search',
+    path: 'product/search1',
     component: ProductSearchComponent,
     canActivate: [AuthGuardService],
     data: {
       routeId: ProductRouteIds.ProductSearch,
       title: ProductRouteNames.ProductSearch,
-      navigation: '/product/search'
+      navigation: '/product/search1'
     },
   };
 
