@@ -1,5 +1,5 @@
 export class AppUris {
-  static Debug = true;
+  static Debug = false;
   static PubUri = 'http://nutrition-buddy.azurewebsites.net/';
   static DbgUri = 'http://localhost:5000/';
   static RootUri = AppUris.Debug ? AppUris.DbgUri : AppUris.PubUri;

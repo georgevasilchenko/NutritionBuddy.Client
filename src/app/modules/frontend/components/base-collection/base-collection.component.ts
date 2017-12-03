@@ -1,10 +1,10 @@
 import {BaseRepositoryService} from '../../services/base-repository.service';
 import {Component, ComponentRef, Type, ViewChild, ViewContainerRef} from '@angular/core';
 import {BaseComponent} from '../base-component/base.component';
-import {BaseCollectionItemComponent} from '../base-collection-item/base-collection-item.component';
 import {CreateCollectionItemModel} from '../../models/create-collection-item.model';
 import {ComponentFactoryService} from '../../services/component-factory.service';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
+import {BaseCollectionItemComponent} from '../base-collection-item/base-collection-item.component';
 
 @Component({
   selector: FrontendSelectorsIds.BaseCollectionSelector,
@@ -17,10 +17,10 @@ export class BaseCollectionComponent<TypeModel> {
   model: TypeModel[];
   components: ComponentRef<BaseComponent<TypeModel>>[];
 
-  constructor(protected repository: BaseRepositoryService<TypeModel>,
-              protected factoryService: ComponentFactoryService<TypeModel, BaseComponent<TypeModel>>,
-              protected componentType: Type<BaseCollectionItemComponent<TypeModel>>,
-              protected createCollectionItemModel?: CreateCollectionItemModel) {
+  constructor(public repository: BaseRepositoryService<TypeModel>,
+              public factoryService: ComponentFactoryService<TypeModel, BaseComponent<TypeModel>>,
+              public componentType: Type<BaseCollectionItemComponent<TypeModel>>,
+              public createCollectionItemModel?: CreateCollectionItemModel) {
     this.components = [];
   }
 
