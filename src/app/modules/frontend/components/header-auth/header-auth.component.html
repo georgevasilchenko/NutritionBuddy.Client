@@ -4,7 +4,11 @@
      data-toggle="dropdown"
      aria-haspopup="true"
      aria-expanded="false">
-    <strong>{{greeting.toUpperCase()}}</strong>
+    <div class="user-image-wrapper">
+      <img *ngIf="user && user.userImage.imageString"
+           class="user-image-thumbnail" [src]="user.userImage.imageString" alt="user">
+    </div>
+    <div class="clear"></div>
   </a>
   <div class="dropdown-menu"
        aria-labelledby="navbarDropdown">
