@@ -1,5 +1,10 @@
-.header-auth-wrapper {
+@import "../../../../../styles/common.less";
 
+.nav-link {
+  padding: 2px 5px 2px 2px;
+}
+
+.header-auth-wrapper {
   table {
     //border: 1px solid black;
     td {
@@ -9,6 +14,30 @@
 
   .profile-name-text {
     display: inline-block;
+  }
+
+  .user-image-wrapper {
+    max-width: 40px;
+    max-height: 40px;
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: @nb-border-radius;
+    position: relative;
+    .user-image-thumbnail {
+
+      max-width: 38px;
+      max-height: 38px;
+      border-radius: @nb-border-radius;
+      border: 1px solid @common-border-color;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
 }
 
