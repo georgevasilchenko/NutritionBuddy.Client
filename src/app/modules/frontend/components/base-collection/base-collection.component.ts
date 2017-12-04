@@ -1,10 +1,9 @@
 import {BaseRepositoryService} from '../../services/base-repository.service';
-import {Component, ComponentRef, Type, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ComponentRef, ViewChild, ViewContainerRef} from '@angular/core';
 import {BaseComponent} from '../base-component/base.component';
 import {CreateCollectionItemModel} from '../../models/create-collection-item.model';
 import {ComponentFactoryService} from '../../services/component-factory.service';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
-import {BaseCollectionItemComponent} from '../base-collection-item/base-collection-item.component';
 
 @Component({
   selector: FrontendSelectorsIds.BaseCollectionSelector,
@@ -19,7 +18,6 @@ export class BaseCollectionComponent<TypeModel> {
 
   constructor(public repository: BaseRepositoryService<TypeModel>,
               public factoryService: ComponentFactoryService<TypeModel, BaseComponent<TypeModel>>,
-              public componentType: Type<BaseCollectionItemComponent<TypeModel>>,
               public createCollectionItemModel?: CreateCollectionItemModel) {
     this.components = [];
   }
@@ -41,18 +39,18 @@ export class BaseCollectionComponent<TypeModel> {
   }
 
   onLoadModelComplete() {
-    this.createComponents(this.model);
+
   }
 
   mapResultsToCollection(): void {
 
   }
 
-  createComponents(model: TypeModel[]): void {
+  createComponents(model: TypeModel[], type: any): void {
     this.factoryService.setRootViewContainerRef(this.collectionItemsContainer);
 
     for (const item of model) {
-      const newComponent = this.factoryService.addDynamicComponentWithModel(item, this.componentType);
+      const newComponent = this.factoryService.addDynamicComponentWithModel(item, type);
       this.components.push(newComponent);
     }
   }

@@ -17,8 +17,7 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
 
   constructor(protected _productService: ProductRepositoryService,
               @Inject(ComponentFactoryService) protected _factoryService: ComponentFactoryService<Product, BaseComponent<Product>>) {
-    super(_productService, _factoryService, ProductItemComponent,
-      new CreateCollectionItemModel('../edit', 'New Product'));
+    super(_productService, _factoryService, new CreateCollectionItemModel('../edit', 'New Product'));
   }
 
   ngOnInit() {
@@ -27,7 +26,7 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
 
   onLoadModelComplete() {
     this.mapResultsToCollection();
-    this.createComponents(this.model);
+    this.createComponents(this.model, ProductItemComponent);
   }
 
   mapResultsToCollection(): void {

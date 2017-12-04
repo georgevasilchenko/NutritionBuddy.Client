@@ -6,19 +6,21 @@ import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {FileImage} from '../../../../frontend/models/file-image.model';
 import {DataService} from '../../../services/data.service';
 import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
+import {BaseCollectionItemComponent} from '../../../../frontend/components/base-collection-item/base-collection-item.component';
 
 @Component({
   selector: ProductSelectorsIds.ProductSearchItemSelector,
   templateUrl: './product-search-item.component.html',
   styleUrls: ['../../../../frontend/components/base-collection-item/base-collection-item.component.less']
 })
-export class ProductSearchItemComponent implements OnInit {
+export class ProductSearchItemComponent extends BaseCollectionItemComponent<Product> implements OnInit {
 
   @Input() model: Product;
 
   constructor(private _localStorageService: LocalStorageService,
               private _routingService: RoutingService,
               private _dataService: DataService) {
+    super();
   }
 
   ngOnInit() {
