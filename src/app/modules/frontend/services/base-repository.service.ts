@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {IAppUris} from '../../frontend/models/app-uris-contract.model';
+import {AppUrisCollection} from '../../frontend/models/app-uris-contract.model';
 import {HttpClientService} from './http-client.service';
 
 @Injectable()
 export abstract class BaseRepositoryService<TypeModel> {
   constructor(protected _http: HttpClientService,
-              protected _uris: IAppUris) {
+              protected _uris: AppUrisCollection) {
   }
 
   getAll(): Promise<TypeModel[]> {

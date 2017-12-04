@@ -25,12 +25,12 @@ export class HomeComponent extends BaseCollectionComponent<Panel> implements OnI
   constructor(private _localStorageService: LocalStorageService,
               private _factoryService: ComponentFactoryService<Panel, BaseComponent<Panel>>,
               private _routingService: RoutingService) {
-    super(undefined, _factoryService, DashboardPanelComponent);
+    super(undefined, _factoryService);
   }
 
   ngOnInit() {
     this.loadModel();
-    this.createComponents(this.model);
+    this.createComponents(this.model, DashboardPanelComponent);
   }
 
   loadModel() {

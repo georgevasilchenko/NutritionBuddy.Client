@@ -1,8 +1,10 @@
+import {isDevMode} from '@angular/core';
+
 export class AppUris {
-  static Debug = false;
-  static PubUri = 'http://nutrition-buddy.azurewebsites.net/';
-  static DbgUri = 'http://localhost:5000/';
-  static RootUri = AppUris.Debug ? AppUris.DbgUri : AppUris.PubUri;
+  static IsDev = isDevMode();
+  static ProdUri = 'http://nutrition-buddy.azurewebsites.net/';
+  static DevUri = 'http://localhost:5000/';
+  static RootUri = AppUris.IsDev ? AppUris.DevUri : AppUris.ProdUri;
 
   // Data
   static ImageDataGet = (uri: string) => {

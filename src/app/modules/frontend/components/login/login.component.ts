@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       password: [this.password, [Validators.required, Validators.minLength(6)]]
     });
 
-    if (AppUris.Debug) {
+    if (AppUris.IsDev) {
       this.loginForm.patchValue({
         email: 'george.vasilchenko@gmail.com',
         password: 'QWEasd123!'
