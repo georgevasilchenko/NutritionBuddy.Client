@@ -12,6 +12,7 @@ import {RoutingService} from '../../../../frontend/services/routing.service';
 import {FeatureActionService} from '../../../../frontend/services/feature-action.service';
 import {MatDialog} from "@angular/material";
 import {ProductEditDialogComponent} from "../product-edit-dialog/product-edit-dialog.component";
+import {DialogResult} from "../../../../frontend/models/dialog-result.model";
 
 @Component({
   selector: ProductSelectorsIds.ProductCollectionSelector,
@@ -41,8 +42,8 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
     }
 
     this._productCreateDialogRef = this._productCreateDialog.open(ProductEditDialogComponent);
-    this._productCreateDialogRef.afterClosed().subscribe(result => {
-      console.log('REFRESH COLLECTION!!!');
+    this._productCreateDialogRef.afterClosed().subscribe((result: DialogResult) => {
+      this.refreshModel(result);
     });
   }
 
@@ -96,7 +97,11 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
     }
   }
 
-  refreshModel(): void {
+  refreshModel(dialogResult: DialogResult): void {
+    if (!dialogResult.modelIsChanged) {
+      return;
+    }
+
     this.destroyChildren();
     this._productService.getAll()
       .then(results => {
