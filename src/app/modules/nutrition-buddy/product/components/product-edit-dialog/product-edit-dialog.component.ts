@@ -14,6 +14,7 @@ import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {HeaderActionItem} from '../../../../frontend/models/header-action-item.model';
 import {IconsNames} from '../../../../../globals/icons-names';
 import {ProductCollectionComponent} from '../product-collection/product-collection.component';
+import {DialogResult} from "../../../../frontend/models/dialog-result.model";
 
 @Component({
   selector: ProductSelectorsIds.ProductEditDialogSelector,
@@ -113,24 +114,34 @@ export class ProductEditDialogComponent extends BaseEditComponent<Product> imple
 
   onSubmit(form: FormGroup) {
 
-    if (!this.isCreate && !form.dirty && !form.valid) {
-      return;
-    }
-
-    if (this.isCreate && !form.dirty && !form.valid) {
-      return;
+    if (this.isCreate) {
+      if (!form.valid) {
+        return;
+      }
+    } else if (!this.isCreate) {
+      if (!(form.valid && form.dirty)) {
+        return;
+      }
     }
 
     this.applyChangedModel(form.value);
 
     if (this.isCreate) {
       this._productRepositoryService.create(this.model)
-        .then((e) => this.dialogRef.close())
-        .catch((e) => console.log(e));
+        .then((e) => {
+          this.dialogRef.close(new DialogResult(true));
+        })
+        .catch((e) => {
+          this.dialogRef.close(new DialogResult(false));
+        });
     } else {
       this._productRepositoryService.update(this.model)
-        .then((e) => this.dialogRef.close())
-        .catch((e) => console.log(e));
+        .then((e) => {
+          this.dialogRef.close(new DialogResult(true));
+        })
+        .catch((e) => {
+          this.dialogRef.close(new DialogResult(false));
+        });
     }
   }
 
@@ -152,7 +163,7 @@ export class ProductEditDialogComponent extends BaseEditComponent<Product> imple
   }
 
   onCancelClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(new DialogResult(false));
   }
 
   ngOnDestroy(): void {

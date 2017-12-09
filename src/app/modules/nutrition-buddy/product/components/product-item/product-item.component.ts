@@ -9,6 +9,7 @@ import {ProductEditDialogComponent} from '../product-edit-dialog/product-edit-di
 import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
 import {ProductRepositoryService} from '../../services/product-repository.service';
 import {ProductCollectionComponent} from '../product-collection/product-collection.component';
+import {DialogResult} from "../../../../frontend/models/dialog-result.model";
 
 @Component({
   selector: ProductSelectorsIds.ProductCollectionItemSelector,
@@ -33,8 +34,8 @@ export class ProductItemComponent extends BaseCollectionItemComponent<Product> i
     }
 
     this._productUpdateDialogRef = this._productUpdateDialog.open(ProductEditDialogComponent);
-    this._productUpdateDialogRef.afterClosed().subscribe(result => {
-      this.parentCollectionComponent.refreshModel();
+    this._productUpdateDialogRef.afterClosed().subscribe((result: DialogResult) => {
+      this.parentCollectionComponent.refreshModel(result);
     });
   }
 
