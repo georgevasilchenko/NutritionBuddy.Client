@@ -16,6 +16,7 @@ export class BaseEditComponent<TypeModel> extends BaseComponent<TypeModel> {
   constructor(protected _repositoryService: BaseRepositoryService<TypeModel>,
               protected _route: ActivatedRoute) {
     super();
+    this.actions = [];
   }
 
   loadModel() {

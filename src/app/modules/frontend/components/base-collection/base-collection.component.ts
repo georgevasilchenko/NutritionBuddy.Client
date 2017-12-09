@@ -10,7 +10,7 @@ import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
   templateUrl: './base-collection.component.html',
   styleUrls: ['./base-collection.component.less']
 })
-export class BaseCollectionComponent<TypeModel> {
+export class BaseCollectionComponent<TypeModel> extends BaseComponent<TypeModel[]> {
 
   @ViewChild('collectionItemsContainer', {read: ViewContainerRef}) collectionItemsContainer: ViewContainerRef;
   model: TypeModel[];
@@ -19,6 +19,8 @@ export class BaseCollectionComponent<TypeModel> {
   constructor(public repository: BaseRepositoryService<TypeModel>,
               public factoryService: ComponentFactoryService<TypeModel, BaseComponent<TypeModel>>,
               public createCollectionItemModel?: CreateCollectionItemModel) {
+    super();
+    this.actions = [];
     this.components = [];
   }
 
@@ -46,7 +48,7 @@ export class BaseCollectionComponent<TypeModel> {
 
   }
 
-  createComponents(model: TypeModel[], type: any): void {
+  createComponents(model: TypeModel[], type: any, extraData?: any): void {
     this.factoryService.setRootViewContainerRef(this.collectionItemsContainer);
 
     for (const item of model) {

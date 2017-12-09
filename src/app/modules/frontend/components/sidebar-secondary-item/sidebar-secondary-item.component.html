@@ -1,0 +1,10 @@
+<div id="sidebar-secondary-item-container">
+  <a mat-icon-button
+     [matTooltip]="model.itemTooltip"
+     matTooltipPosition="right"
+     [routerLink]="model.navigationPath">
+    <mat-icon class="sidebar-secondary-icon"
+              [ngStyle]="{'color': model.itemColor}">{{model.iconCode}}
+    </mat-icon>
+  </a>
+</div>

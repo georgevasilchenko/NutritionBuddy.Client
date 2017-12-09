@@ -4,6 +4,13 @@ export class FrontendSelectorsIds {
   static BaseCollectionItemSelector = 'fw-base-collection-item';
   static BaseUpdateSelector = 'fw-base-update';
   static HomeSelector = 'fw-home';
+  static DashboardSelector = 'fw-dashboard';
+  static DashboardWindowSelector = 'fw-dashboard-window';
+  static DashboardHeaderSelector = 'fw-dashboard-header';
+  static SidebarPrimarySelector = 'fw-sidebar-primary';
+  static SidebarSecondarySelector = 'fw-sidebar-secondary';
+  static SidebarPrimaryItemSelector = 'fw-sidebar-primary-item';
+  static SidebarSecondaryItemSelector = 'fw-sidebar-secondary-item';
   static HeaderSelector = 'fw-header';
   static PageNotFoundSelector = 'fw-404';
   static DashboardTileSelector = 'fw-tile';
@@ -17,5 +24,9 @@ export class FrontendSelectorsIds {
   static LoginSelector = 'fw-login';
   static HeaderAuthenticationSelector = 'fw-header-auth';
   static FileImageSelector = 'fw-file-image';
+  static BaseAction = 'fw-base-action';
+  static HeaderActionItemSelector = 'fw-header-action-item';
+  static HeaderActionsPanelSelector = 'fw-header-actions-panel';
+  static CollectionItemActionItemSelector = 'fw-collection-item-action-item';
 }
 

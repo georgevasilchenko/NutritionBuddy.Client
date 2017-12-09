@@ -8,20 +8,20 @@ import {RoutingService} from '../../services/routing.service';
 import {FrontendRouteIds} from '../../globals/frontend-route-ids';
 import 'rxjs/add/operator/toPromise';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
-import {UserLogin} from "../../../nutrition-buddy/identity/models/user.model";
+import {UserLogin} from '../../../nutrition-buddy/identity/models/user.model';
 
 @Component({
   selector: FrontendSelectorsIds.LoginSelector,
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  templateUrl: './login-new.component.html',
+  styleUrls: ['./login-new.component.less']
 })
 export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
   isSignUp = false;
-
   loginForm: FormGroup;
+  passwordHide = true;
 
   constructor(private _formBuilder: FormBuilder,
               private _authService: AuthService,
