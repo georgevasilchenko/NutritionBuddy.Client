@@ -1,5 +1,5 @@
 export class AppUris {
-  static IsDev = true;
+  static IsDev = false;
   static ProdUri = 'http://nutrition-buddy-api.azurewebsites.net/';
   static DevUri = 'http://localhost:5000/';
   static RootUri = AppUris.IsDev ? AppUris.DevUri : AppUris.ProdUri;
