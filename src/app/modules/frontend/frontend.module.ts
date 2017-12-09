@@ -21,20 +21,31 @@ import {AlertService} from './services/alert.service';
 import {TempStorageService} from './services/temp-storage.service';
 import {LoadingService} from './services/loading.service';
 import {ComponentFactoryService} from './services/component-factory.service';
-import {HttpModule} from '@angular/http';
 import {AuthGuardService} from './services/auth-guard.service';
 import {AuthService} from './services/auth.service';
 import {HeaderAuthComponent} from './components/header-auth/header-auth.component';
 import {AlertModalComponent} from './components/alert-modal/alert-modal.component';
 import {BaseEditComponent} from './components/base-edit/base-edit.component';
-import {XhrImageService} from './services/xhr-image.service';
 import {SafeHtmlPipe} from './services/safe-html.pipe';
 import {FileImageComponent} from './components/file-image/file-image.component';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {SidebarPrimaryComponent} from './components/sidebar-primary/sidebar-primary.component';
+import {SidebarPrimaryItemComponent} from './components/sidebar-primary-item/sidebar-primary-item.component';
+import {BaseActionComponent} from './components/base-action/base-action.component';
+import {DashboardWindowComponent} from './components/dashboard-window/dashboard-window.component';
+import {DashboardHeaderComponent} from './components/dashboard-header/dashboard-header.component';
+import {HeaderActionItemComponent} from './components/header-action-item/header-action-item.component';
+import {SidebarSecondaryComponent} from './components/sidebar-secondary/sidebar-secondary.component';
+import {SidebarSecondaryItemComponent} from './components/sidebar-secondary-item/sidebar-secondary-item.component';
+import {ActiveStateService} from './services/active-state.service';
+import {StateResolveService} from './services/state-resolve.service';
+import {HeaderActionsPanelComponent} from './components/header-actions-panel/header-actions-panel.component';
+import {FeatureActionService} from './services/feature-action.service';
+import {CollectionItemActionItemComponent} from './components/collection-item-action-item/collection-item-action-item.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
@@ -57,14 +68,27 @@ import {FileImageComponent} from './components/file-image/file-image.component';
     AlertModalComponent,
     BaseEditComponent,
     SafeHtmlPipe,
-    FileImageComponent
+    FileImageComponent,
+    DashboardComponent,
+    SidebarPrimaryComponent,
+    SidebarPrimaryItemComponent,
+    BaseActionComponent,
+    DashboardWindowComponent,
+    DashboardHeaderComponent,
+    HeaderActionItemComponent,
+    SidebarSecondaryComponent,
+    SidebarSecondaryItemComponent,
+    HeaderActionsPanelComponent,
+    CollectionItemActionItemComponent
   ],
   exports: [
     CreateCollectionItemComponent,
     HeaderComponent,
     AlertModalComponent,
     SafeHtmlPipe,
-    FileImageComponent
+    FileImageComponent,
+    HeaderActionsPanelComponent,
+    CollectionItemActionItemComponent
   ],
   providers: [
     ObjectUtilityService,
@@ -77,7 +101,9 @@ import {FileImageComponent} from './components/file-image/file-image.component';
     HttpClientService,
     AuthService,
     AuthGuardService,
-    XhrImageService
+    ActiveStateService,
+    StateResolveService,
+    FeatureActionService,
   ],
   entryComponents: [DashboardPanelComponent]
 })

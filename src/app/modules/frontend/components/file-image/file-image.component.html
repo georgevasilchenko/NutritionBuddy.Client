@@ -1,11 +1,22 @@
-<div class="image-thumbnail-wrapper">
-  <img *ngIf="model"
-       (click)="openFileDialog()"
-       id="imageId"
-       [src]="model ? (model.imageString | safeHtml) : altImageSource"
-       alt="user image"
-       class="image-thumbnail-int">
-  <input #fileSelector style="visibility: hidden;"
-         (change)="onFileDialogFileChange($event)"
-         type="file"/>
-</div>
+<!--<div class="image-thumbnail-wrapper">-->
+<!--<img *ngIf="model"-->
+<!--(click)="openFileDialog()"-->
+<!--id="imageId"-->
+<!--[src]="model ? (model.imageString | safeHtml) : altImageSource"-->
+<!--alt="user image"-->
+<!--class="image-thumbnail-int">-->
+<!--<input #fileSelector style="visibility: hidden;"-->
+<!--(change)="onFileDialogFileChange($event)"-->
+<!--type="file"/>-->
+<!--</div>-->
+<!--<div id="image-container">-->
+<!---->
+<!--</div>-->
+<img *ngIf="model"
+     (click)="openFileDialog()"
+     id="imageId"
+     [src]="model ? (model.imageString | safeHtml) : altImageSource"
+     alt="user image">
+<input #fileSelector style="visibility: hidden;"
+       (change)="onFileDialogFileChange($event)"
+       type="file"/>

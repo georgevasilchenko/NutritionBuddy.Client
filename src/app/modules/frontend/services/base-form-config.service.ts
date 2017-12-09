@@ -8,7 +8,7 @@ export class BaseFormConfigService<TypeModel> {
 
   }
 
-  generateForm<TypeModel>(model: TypeModel): any {
+  generateForm(model: TypeModel): any {
     throw new Error('Not implemented');
   }
 

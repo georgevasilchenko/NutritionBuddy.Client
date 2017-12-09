@@ -1,0 +1,31 @@
+#header-action-item-container {
+  padding-right: 10px;
+  padding-left: 10px;
+
+  /*appear animation*/
+  -webkit-animation-name: appear-action; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-delay: 0s; /* Safari 4.0 - 8.0 */
+  animation-name: appear-action;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes appear-action {
+  0% {
+    -ms-transform: scale(0, 0); /* IE 9 */
+    -webkit-transform: scale(0, 0); /* Safari */
+    transform: scale(0, 0);
+  }
+  75% {
+    -ms-transform: scale(1.2, 1.2); /* IE 9 */
+    -webkit-transform: scale(1.2, 1.2); /* Safari */
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    -ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1, 1); /* Safari */
+    transform: scale(1, 1);
+  }
+}

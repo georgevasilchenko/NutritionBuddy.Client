@@ -43,7 +43,7 @@ export class ProductFormConfigService {
         potassium_MilliGrams: [model.nutritionFacts.totalCarbohydrate_Grams],
         phosphorus_MilliGrams: [model.nutritionFacts.phosphorus_MilliGrams]
       }),
-      nutrients: this._formBuilder.group(model.nutrients.getFormConfig(model.nutrients))
+      // nutrients: this._formBuilder.group(model.nutrients.getFormConfig(model.nutrients))
     });
   }
 }

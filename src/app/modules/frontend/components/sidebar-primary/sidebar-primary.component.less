@@ -1,0 +1,49 @@
+
+#sidebar-primary-container {
+  position: relative;
+
+  width: 60px;
+  height: 100%;
+  background-color: #3a3a3a;
+
+  align-items: center;
+  justify-content: baseline;
+
+  flex-direction: column;
+  display: flex;
+
+  /*appear animation*/
+  -webkit-animation-name: appear-sidebar; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-delay: 0s; /* Safari 4.0 - 8.0 */
+  animation-name: appear-sidebar;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes appear-sidebar {
+  0% {
+    left: -60px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes appear-sidebar {
+  0% {
+    left: -60px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+#sidebar-logo {
+  width: 48px;
+  height: 48px;
+
+  margin-top: 8px;
+  margin-bottom: 10px;
+}

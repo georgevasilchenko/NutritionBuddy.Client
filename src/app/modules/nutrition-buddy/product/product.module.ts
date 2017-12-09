@@ -16,6 +16,7 @@ import {ProductInformationComponent} from './components/product-information/prod
 import {ServingInformationComponent} from './components/serving-information/serving-information.component';
 import {NutritionFactsComponent} from './components/nutrition-facts/nutrition-facts.component';
 import {NutrientsComponent} from './components/nutrients/nutrients.component';
+import {ProductEditDialogComponent} from './components/product-edit-dialog/product-edit-dialog.component';
 
 @NgModule({
   imports: [
@@ -36,11 +37,12 @@ import {NutrientsComponent} from './components/nutrients/nutrients.component';
     ProductInformationComponent,
     ServingInformationComponent,
     NutritionFactsComponent,
-    NutrientsComponent
+    NutrientsComponent,
+    ProductEditDialogComponent
   ],
   exports: [ProductCollectionComponent],
   providers: [ProductRepositoryService, ProductFormConfigService],
-  entryComponents: [ProductItemComponent, ProductSearchItemComponent]
+  entryComponents: [ProductItemComponent, ProductSearchItemComponent, ProductEditDialogComponent]
 })
 export class ProductModule {
 }

@@ -14,4 +14,10 @@ export class IconsNames {
   static Person = 'person';
   static Cancel = 'cancel';
   static ExitToApp = 'exit_to_app';
+  static LocalDining = 'local_dining';
+  static Settings = 'settings';
+  static AddBox = 'add_box';
+  static Done = 'done';
+  static MoreHorizontal = 'more_horiz';
+  static MoreVertical = 'more_vert';
 }

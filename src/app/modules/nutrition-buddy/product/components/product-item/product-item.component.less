@@ -1,0 +1,52 @@
+.collection-card {
+  width: 300px;
+
+  margin-bottom: 10px;
+  margin-right: 10px;
+
+  /*appear animation*/
+  -webkit-animation-name: appear-collection-card; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+  -webkit-animation-delay: 0s; /* Safari 4.0 - 8.0 */
+  animation-name: appear-collection-card;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes appear-collection-card {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+@keyframes appear-collection-card {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.card-header {
+  max-height: 60px;
+  margin-bottom: 5px;
+}
+
+.card-content {
+  display: flex;
+
+  table {
+    width: 100%;
+
+    .tb-value {
+      font-weight: 600;
+    }
+  }
+}
+
+

@@ -11,4 +11,5 @@ export class ProductSelectorsIds {
   static ServingInformationSelector = 'nb-serving-information';
   static NutritionFactsSelector = 'nb-nutrition-facts';
   static NutrientsSelector = 'nb-nutrients';
+  static ProductEditDialogSelector = 'nb-product-edit-dialog';
 }

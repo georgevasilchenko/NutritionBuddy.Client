@@ -1,13 +1,8 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~font-awesome/css/font-awesome.css';
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 @import './styles/common.less';
 @import './styles/overrides.less';
-
-html {
-  background: url('assets/images/background/nature.jpg') no-repeat center;
-  background-size: cover;
-}
 
 html,
 body {
@@ -18,7 +13,11 @@ body {
   overflow-x: hidden;
 
   font-family: 'Segoe UI', SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: transparent;
+  background-color: #6fb8c5;
+}
+
+html {
+  position: relative;
 }
 
 p,
@@ -30,3 +29,8 @@ label {
   margin: 0;
 }
 
+/** {*/
+/*background: #000 !important;*/
+/*color: #0f0 !important;*/
+/*outline: solid #f00 1px !important;*/
+/*}*/

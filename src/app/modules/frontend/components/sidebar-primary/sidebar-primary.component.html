@@ -1,0 +1,9 @@
+<div id="sidebar-primary-container">
+  <a href="#"
+     [routerLink]="'/dashboard'">
+    <img id="sidebar-logo"
+         src="../../../../../assets/images/logo/logo-nutrition.png" alt="logo">
+  </a>
+  <fw-sidebar-primary-item *ngFor="let item of model"
+                           [model]="item"></fw-sidebar-primary-item>
+</div>
