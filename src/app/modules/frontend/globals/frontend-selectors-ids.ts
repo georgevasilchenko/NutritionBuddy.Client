@@ -28,5 +28,6 @@ export class FrontendSelectorsIds {
   static HeaderActionItemSelector = 'fw-header-action-item';
   static HeaderActionsPanelSelector = 'fw-header-actions-panel';
   static CollectionItemActionItemSelector = 'fw-collection-item-action-item';
+  static AlertPopupSelector = 'fw-alert-popup';
 }
 

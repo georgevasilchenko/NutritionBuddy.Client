@@ -7,7 +7,7 @@ export class IconsNames {
   static ArrowForward = 'arrow_forward';
   static ChevronLeft = 'chevron_left';
   static ChevronRight = 'chevron_right';
-  static LibraryAdd = 'library_add'
+  static LibraryAdd = 'library_add';
   static Identity = 'perm_identity';
   static AccountCircle = 'account_circle';
   static Face = 'face';
@@ -20,4 +20,5 @@ export class IconsNames {
   static Done = 'done';
   static MoreHorizontal = 'more_horiz';
   static MoreVertical = 'more_vert';
+  static Delete = 'delete';
 }

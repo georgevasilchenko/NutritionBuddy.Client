@@ -28,7 +28,7 @@ export class UserRepositoryService extends BaseRepositoryService<User> {
         return user;
       })
       .catch((e) => {
-        console.log(e);
+
       });
   }
 }

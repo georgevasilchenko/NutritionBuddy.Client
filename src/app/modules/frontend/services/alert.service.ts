@@ -1,38 +1,16 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
+import {MatSnackBar} from '@angular/material';
+import {AlertPopupComponent} from '../components/alert-popup/alert-popup.component';
+import {AlertSnackbarData} from '../models/alert-snackbar-data.model';
 
 @Injectable()
 export class AlertService {
 
-  onShownEvent: EventEmitter<boolean> = new EventEmitter();
-
-  private _isShown: boolean;
-  public message: string;
-
-  constructor() {
-  }
-
-  getIsShown(): boolean {
-    return this._isShown;
+  constructor(private _snackBar: MatSnackBar) {
   }
 
   displayMessage(message: string) {
-    if (this._isShown) {
-      return;
-    }
-
-    this._isShown = false;
-    this.message = null;
-
-    setTimeout(() => {
-      this._isShown = true;
-      this.onShownEvent.emit(true);
-      this.message = message;
-    }, 1000);
-
-    setTimeout(() => {
-      this._isShown = false;
-      this.onShownEvent.emit(false);
-      this.message = null;
-    }, 5000);
+    this._snackBar.openFromComponent(AlertPopupComponent, {duration: 5000, data: new AlertSnackbarData(message)});
+    console.error(message);
   }
 }

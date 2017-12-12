@@ -42,6 +42,7 @@ import {StateResolveService} from './services/state-resolve.service';
 import {HeaderActionsPanelComponent} from './components/header-actions-panel/header-actions-panel.component';
 import {FeatureActionService} from './services/feature-action.service';
 import {CollectionItemActionItemComponent} from './components/collection-item-action-item/collection-item-action-item.component';
+import {AlertPopupComponent} from './components/alert-popup/alert-popup.component';
 
 @NgModule({
   imports: [
@@ -79,7 +80,8 @@ import {CollectionItemActionItemComponent} from './components/collection-item-ac
     SidebarSecondaryComponent,
     SidebarSecondaryItemComponent,
     HeaderActionsPanelComponent,
-    CollectionItemActionItemComponent
+    CollectionItemActionItemComponent,
+    AlertPopupComponent
   ],
   exports: [
     CreateCollectionItemComponent,
@@ -105,7 +107,7 @@ import {CollectionItemActionItemComponent} from './components/collection-item-ac
     StateResolveService,
     FeatureActionService,
   ],
-  entryComponents: [DashboardPanelComponent]
+  entryComponents: [DashboardPanelComponent, AlertPopupComponent]
 })
 export class FrontendModule {
 }
