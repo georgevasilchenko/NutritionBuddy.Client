@@ -24,7 +24,6 @@ import {ComponentFactoryService} from './services/component-factory.service';
 import {AuthGuardService} from './services/auth-guard.service';
 import {AuthService} from './services/auth.service';
 import {HeaderAuthComponent} from './components/header-auth/header-auth.component';
-import {AlertModalComponent} from './components/alert-modal/alert-modal.component';
 import {BaseEditComponent} from './components/base-edit/base-edit.component';
 import {SafeHtmlPipe} from './services/safe-html.pipe';
 import {FileImageComponent} from './components/file-image/file-image.component';
@@ -60,13 +59,11 @@ import {AlertPopupComponent} from './components/alert-popup/alert-popup.componen
     HeaderNavButtonComponent,
     TileComponent,
     LoginComponent,
-
     BaseCollectionComponent,
     BaseCollectionItemComponent,
     BaseEditComponent,
     CreateCollectionItemComponent,
     HeaderAuthComponent,
-    AlertModalComponent,
     BaseEditComponent,
     SafeHtmlPipe,
     FileImageComponent,
@@ -86,7 +83,6 @@ import {AlertPopupComponent} from './components/alert-popup/alert-popup.componen
   exports: [
     CreateCollectionItemComponent,
     HeaderComponent,
-    AlertModalComponent,
     SafeHtmlPipe,
     FileImageComponent,
     HeaderActionsPanelComponent,
