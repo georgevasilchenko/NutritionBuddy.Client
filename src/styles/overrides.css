@@ -4,3 +4,7 @@ hr {
   border: 0;
   border-top: none;
 }
+
+snack-bar-container {
+  background-color: #424242 !important;
+}

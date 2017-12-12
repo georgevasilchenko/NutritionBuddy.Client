@@ -19,15 +19,15 @@ export class AlertModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.modalSubscription = this.alertService.onShownEvent
-      .subscribe((value) => {
-        const display = window.getComputedStyle(this.modalDialog.nativeElement).getPropertyValue('display');
-        if (value && display === 'none') {
-          this.modalToggle.nativeElement.click();
-        } else if (!value && display === 'block') {
-          this.modalToggle.nativeElement.click();
-        }
-      });
+    // this.modalSubscription = this.alertService.onShownEvent
+    //   .subscribe((value) => {
+    //     const display = window.getComputedStyle(this.modalDialog.nativeElement).getPropertyValue('display');
+    //     if (value && display === 'none') {
+    //       this.modalToggle.nativeElement.click();
+    //     } else if (!value && display === 'block') {
+    //       this.modalToggle.nativeElement.click();
+    //     }
+    //   });
   }
 
   closeDialog() {
