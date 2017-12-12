@@ -14,7 +14,7 @@ import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {HeaderActionItem} from '../../../../frontend/models/header-action-item.model';
 import {IconsNames} from '../../../../../globals/icons-names';
 import {ProductCollectionComponent} from '../product-collection/product-collection.component';
-import {DialogResult} from "../../../../frontend/models/dialog-result.model";
+import {DialogResult} from '../../../../frontend/models/dialog-result.model';
 
 @Component({
   selector: ProductSelectorsIds.ProductEditDialogSelector,

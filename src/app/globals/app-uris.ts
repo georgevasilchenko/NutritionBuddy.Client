@@ -6,11 +6,11 @@ export class AppUris {
 
   // Data
   static ImageDataGet = (uri: string) => {
-    return AppUris.RootUri + 'api/data/getimagedata?uri=' + uri;
-  }
+  return AppUris.RootUri + 'api/data/getimagedata?uri=' + uri;
+}
 
-  // Product
-  static ProductGetAll = AppUris.RootUri + 'api/product/getall';
+// Product
+static ProductGetAll = AppUris.RootUri + 'api/product/getall';
   static ProductCreate = AppUris.RootUri + 'api/product/create';
   static ProductUpdate = AppUris.RootUri + 'api/product/update';
   static ProductDelete = AppUris.RootUri + 'api/product/delete';

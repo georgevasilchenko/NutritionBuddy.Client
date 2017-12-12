@@ -10,9 +10,9 @@ import {HeaderActionItem} from '../../../../frontend/models/header-action-item.m
 import {IconsNames} from '../../../../../globals/icons-names';
 import {RoutingService} from '../../../../frontend/services/routing.service';
 import {FeatureActionService} from '../../../../frontend/services/feature-action.service';
-import {MatDialog} from "@angular/material";
-import {ProductEditDialogComponent} from "../product-edit-dialog/product-edit-dialog.component";
-import {DialogResult} from "../../../../frontend/models/dialog-result.model";
+import {MatDialog} from '@angular/material';
+import {ProductEditDialogComponent} from '../product-edit-dialog/product-edit-dialog.component';
+import {DialogResult} from '../../../../frontend/models/dialog-result.model';
 
 @Component({
   selector: ProductSelectorsIds.ProductCollectionSelector,
@@ -98,7 +98,8 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
   }
 
   refreshModel(dialogResult: DialogResult): void {
-    if (!dialogResult.modelIsChanged) {
+
+    if (!dialogResult || !dialogResult.modelIsChanged) {
       return;
     }
 
