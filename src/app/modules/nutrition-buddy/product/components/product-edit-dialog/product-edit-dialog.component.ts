@@ -61,7 +61,7 @@ export class ProductEditDialogComponent extends BaseEditComponent<Product> imple
       )
     );
 
-    if(!this.isCreate) {
+    if (!this.isCreate) {
       this.actions.splice(1, 0, new HeaderActionItem(
         IconsNames.Delete,
         'Delete',
