@@ -23,7 +23,7 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "./styles/common.less",
-        "./styles/overrides.less",
+        "./styles/overrides.css",
         "./styles/elements.less",
         "styles.css"
       ],

@@ -1,110 +1,105 @@
-<div id="product-edit-container">
-  <div id="product-edit-header">
-    <span style="color: #000;">{{isCreate ? 'Add Food': 'Edit Food'}}</span>
-    <fw-header-actions-panel [model]="actions"></fw-header-actions-panel>
-  </div>
-  <div id="product-edit-body">
-
-    <form [formGroup]="form"
-          *ngIf="form"
-          (ngSubmit)="onSubmit(form)">
-
-      <div class="dialog-row">
-        <div id="product-main">
-          <mat-form-field>
-            <input matInput id="productUniqueName" placeholder="Unique Name" formControlName="uniqueName">
-          </mat-form-field>
-
-          <div id="product-product-info" formGroupName="productInformation">
+<div mat-dialog-content>
+  <div id="product-edit-container">
+    <div id="product-edit-header">
+      <span style="color: #000;">{{isCreate ? 'Add Food': 'Edit Food'}}</span>
+      <fw-header-actions-panel [model]="actions"></fw-header-actions-panel>
+    </div>
+    <div id="product-edit-body">
+      <form [formGroup]="form"
+            *ngIf="form"
+            (ngSubmit)="onSubmit(form)">
+        <div class="dialog-row">
+          <div id="product-main">
             <mat-form-field>
-              <input matInput id="productName" placeholder="Product Name" formControlName="productName">
+              <input matInput id="productUniqueName" placeholder="Unique Name" formControlName="uniqueName">
+            </mat-form-field>
+
+            <div id="product-product-info" formGroupName="productInformation">
+              <mat-form-field>
+                <input matInput id="productName" placeholder="Product Name" formControlName="productName">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="brandName" placeholder="Brand Name" formControlName="brandName">
+              </mat-form-field>
+            </div>
+          </div>
+          <div id="product-serving-info" formGroupName="servingInformation">
+            <mat-form-field>
+              <input matInput id="productServingQuantity" type="number" step="1" min="0" placeholder="Quantity"
+                     formControlName="quantity">
             </mat-form-field>
             <mat-form-field>
-              <input matInput id="brandName" placeholder="Brand Name" formControlName="brandName">
+              <input matInput id="productServingUnit" placeholder="Unit" formControlName="unit">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput id="productServingWeightGrams" type="number" step="1" min="0"
+                     placeholder="Weight in grams"
+                     formControlName="weightGrams">
             </mat-form-field>
           </div>
-        </div>
-
-        <div id="product-serving-info" formGroupName="servingInformation">
-          <mat-form-field>
-            <input matInput id="productServingQuantity" type="number" step="1" min="0" placeholder="Quantity"
-                   formControlName="quantity">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput id="productServingUnit" placeholder="Unit" formControlName="unit">
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput id="productServingWeightGrams" type="number" step="1" min="0" placeholder="Weight in grams"
-                   formControlName="weightGrams">
-          </mat-form-field>
-        </div>
-
-        <div id="product-image" formGroupName="productInformation">
-          <fw-file-image *ngIf="model.productImage && model.productImage.imageString"
-                         [model]="model.productImage"
-                         (onFileDialogFileChanged)="onFileImageFileChanged($event)"
-                         [id]="'product-edit-image'">
-          </fw-file-image>
-        </div>
-      </div>
-
-      <div class="dialog-row">
-        <div id="product-nutrition-facts" formGroupName="nutritionFacts">
-          <div class="nutrition-facts-row">
-            <mat-form-field>
-              <input matInput id="nf-calories" type="number" step="1" min="0" placeholder="Calories"
-                     formControlName="calories">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-totalCarbohydrate" type="number" step="0.1" min="0" placeholder="Carbohydrate"
-                     formControlName="totalCarbohydrate_Grams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-totalFat" type="number" step="0.1" min="0" placeholder="Total Fat"
-                     formControlName="totalFat_Grams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-protein" type="number" step="0.1" min="0" placeholder="Protein"
-                     formControlName="protein_Grams">
-            </mat-form-field>
-          </div>
-          <div class="nutrition-facts-row">
-            <mat-form-field>
-              <input matInput id="nf-saturatedFat" type="number" step="0.1" min="0" placeholder="Saturated Fat"
-                     formControlName="saturatedFat_Grams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-cholesterol" type="number" step="0.1" min="0" placeholder="Cholesterol"
-                     formControlName="cholesterol_MilliGrams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-sodium" type="number" step="0.1" min="0" placeholder="Sodium"
-                     formControlName="sodium_MilliGrams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-dietaryFiber" type="number" step="0.1" min="0" placeholder="Dietary Fiber"
-                     formControlName="dietaryFiber_Grams">
-            </mat-form-field>
-          </div>
-          <div class="nutrition-facts-row">
-            <mat-form-field>
-              <input matInput id="nf-sugars" type="number" step="0.1" min="0" placeholder="Sugars"
-                     formControlName="sugars_Grams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-potassium" type="number" step="0.1" min="0" placeholder="Potassium"
-                     formControlName="potassium_MilliGrams">
-            </mat-form-field>
-            <mat-form-field>
-              <input matInput id="nf-phosphorus" type="number" step="0.1" min="0" placeholder="Phosphorus"
-                     formControlName="phosphorus_MilliGrams">
-            </mat-form-field>
+          <div id="product-image" formGroupName="productInformation">
+            <fw-file-image *ngIf="model.productImage && model.productImage.imageString"
+                           [model]="model.productImage"
+                           (onFileDialogFileChanged)="onFileImageFileChanged($event)"
+                           [id]="'product-edit-image'">
+            </fw-file-image>
           </div>
         </div>
-      </div>
-
-    </form>
-
-
+        <div class="dialog-row">
+          <div id="product-nutrition-facts" formGroupName="nutritionFacts">
+            <div class="nutrition-facts-row">
+              <mat-form-field>
+                <input matInput id="nf-calories" type="number" step="1" min="0" placeholder="Calories"
+                       formControlName="calories">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-totalCarbohydrate" type="number" step="0.1" min="0" placeholder="Carbohydrate"
+                       formControlName="totalCarbohydrate_Grams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-totalFat" type="number" step="0.1" min="0" placeholder="Total Fat"
+                       formControlName="totalFat_Grams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-protein" type="number" step="0.1" min="0" placeholder="Protein"
+                       formControlName="protein_Grams">
+              </mat-form-field>
+            </div>
+            <div class="nutrition-facts-row">
+              <mat-form-field>
+                <input matInput id="nf-saturatedFat" type="number" step="0.1" min="0" placeholder="Saturated Fat"
+                       formControlName="saturatedFat_Grams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-cholesterol" type="number" step="0.1" min="0" placeholder="Cholesterol"
+                       formControlName="cholesterol_MilliGrams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-sodium" type="number" step="0.1" min="0" placeholder="Sodium"
+                       formControlName="sodium_MilliGrams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-dietaryFiber" type="number" step="0.1" min="0" placeholder="Dietary Fiber"
+                       formControlName="dietaryFiber_Grams">
+              </mat-form-field>
+            </div>
+            <div class="nutrition-facts-row">
+              <mat-form-field>
+                <input matInput id="nf-sugars" type="number" step="0.1" min="0" placeholder="Sugars"
+                       formControlName="sugars_Grams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-potassium" type="number" step="0.1" min="0" placeholder="Potassium"
+                       formControlName="potassium_MilliGrams">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput id="nf-phosphorus" type="number" step="0.1" min="0" placeholder="Phosphorus"
+                       formControlName="phosphorus_MilliGrams">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
