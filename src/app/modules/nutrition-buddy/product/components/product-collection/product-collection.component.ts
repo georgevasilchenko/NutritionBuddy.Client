@@ -13,6 +13,7 @@ import {FeatureActionService} from '../../../../frontend/services/feature-action
 import {MatDialog} from '@angular/material';
 import {ProductEditDialogComponent} from '../product-edit-dialog/product-edit-dialog.component';
 import {DialogResult} from '../../../../frontend/models/dialog-result.model';
+import {ProductSearchDialogComponent} from '../product-search-dialog/product-search-dialog.component';
 
 @Component({
   selector: ProductSelectorsIds.ProductCollectionSelector,
@@ -22,8 +23,10 @@ import {DialogResult} from '../../../../frontend/models/dialog-result.model';
 export class ProductCollectionComponent extends BaseCollectionComponent<Product> implements OnInit, OnDestroy {
 
   private _productCreateDialogRef: any;
+  private _productSearchDialogRef: any;
 
   constructor(private _productCreateDialog: MatDialog,
+              private _productSearchDialog: MatDialog,
               private _routingService: RoutingService,
               private _featureActionsService: FeatureActionService,
               protected _productService: ProductRepositoryService,
@@ -47,6 +50,18 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
     });
   }
 
+  openSearchDialog(): void {
+
+    if (this._productSearchDialogRef && this._productSearchDialogRef.isOpen) {
+      return;
+    }
+
+    this._productSearchDialogRef = this._productSearchDialog.open(ProductSearchDialogComponent);
+    this._productSearchDialogRef.afterClosed().subscribe((result: DialogResult) => {
+      this.refreshModel(result);
+    });
+  }
+
   createActions() {
     this.actions.push(
       new HeaderActionItem(
@@ -54,6 +69,12 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
         'Add Food',
         undefined,
         () => this.openCreateDialog()
+      ),
+      new HeaderActionItem(
+        IconsNames.Search,
+        'Search Food',
+        undefined,
+        () => this.openSearchDialog()
       )
     );
     this._featureActionsService.setActions(this.actions);

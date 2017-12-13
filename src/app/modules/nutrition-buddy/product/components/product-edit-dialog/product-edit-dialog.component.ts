@@ -13,7 +13,6 @@ import {MatDialogRef} from '@angular/material';
 import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {HeaderActionItem} from '../../../../frontend/models/header-action-item.model';
 import {IconsNames} from '../../../../../globals/icons-names';
-import {ProductCollectionComponent} from '../product-collection/product-collection.component';
 import {DialogResult} from '../../../../frontend/models/dialog-result.model';
 import {AlertService} from '../../../../frontend/services/alert.service';
 
@@ -23,8 +22,6 @@ import {AlertService} from '../../../../frontend/services/alert.service';
   styleUrls: ['./product-edit-dialog.component.less']
 })
 export class ProductEditDialogComponent extends BaseEditComponent<Product> implements OnInit, OnDestroy {
-
-  parentCollectionComponent: ProductCollectionComponent;
 
   constructor(public dialogRef: MatDialogRef<ProductEditDialogComponent>,
               protected _productFormConfigService: ProductFormConfigService,

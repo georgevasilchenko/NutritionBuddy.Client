@@ -1,7 +1,7 @@
 <div mat-dialog-content>
   <div id="product-edit-container">
     <div id="product-edit-header">
-      <span style="color: #000;">{{isCreate ? 'Add Food': 'Edit Food'}}</span>
+      <span mat-dialog-title style="color: #000; margin: 0 !important;">{{isCreate ? 'Add Food': 'Edit Food'}}</span>
       <fw-header-actions-panel [model]="actions"></fw-header-actions-panel>
     </div>
     <div id="product-edit-body">
