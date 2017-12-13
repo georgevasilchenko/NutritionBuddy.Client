@@ -9,7 +9,7 @@ export class AppUris {
     return AppUris.RootUri + 'api/data/getimagedata?uri=' + uri;
   };
 
-// Product
+  // Product
   static ProductGetAll = AppUris.RootUri + 'api/product/getall';
   static ProductCreate = AppUris.RootUri + 'api/product/create';
   static ProductUpdate = AppUris.RootUri + 'api/product/update';

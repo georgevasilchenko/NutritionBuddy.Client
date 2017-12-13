@@ -2,7 +2,7 @@ export class ProductSelectorsIds {
   static ProductCollectionSelector = 'nb-product-collection';
   static ProductCollectionItemSelector = 'nb-product-collection-item';
   static ProductUpdateSelector = 'nb-product-update';
-  static ProductEditSelector = 'nb-product-edit'
+  static ProductEditSelector = 'nb-product-edit';
   static ProductCreateSelector = 'nb-product-create';
   static ProductSearchSelector = 'nb-product-search';
   static ProductSearchItemSelector = 'nb-product-search-item';
@@ -12,4 +12,6 @@ export class ProductSelectorsIds {
   static NutritionFactsSelector = 'nb-nutrition-facts';
   static NutrientsSelector = 'nb-nutrients';
   static ProductEditDialogSelector = 'nb-product-edit-dialog';
+  static ProductSearchDialogSelector = 'nb-product-search-dialog';
+  static ProductSearchListItemSelector = 'nb-product-search-list-item';
 }

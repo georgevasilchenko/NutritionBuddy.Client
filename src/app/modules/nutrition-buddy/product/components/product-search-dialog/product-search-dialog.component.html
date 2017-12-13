@@ -1,0 +1,78 @@
+<div mat-dialog-content>
+  <div id="product-search-container">
+    <div id="product-search-header">
+      <span mat-dialog-title style="color: #000; margin: 0 !important;">Search Food</span>
+      <fw-header-actions-panel [model]="actions"></fw-header-actions-panel>
+    </div>
+    <div id="product-search-body">
+      <div class="dialog-row">
+        <div id="search-panel-container">
+          <mat-form-field id="search-field">
+            <input matInput placeholder="Search term"
+                   [(ngModel)]="searchQuery"
+                   value="Apple">
+          </mat-form-field>
+          <button id="searchButton" mat-mini-fab color="accent"
+                  matTooltip="Search" matTooltipPosition="below"
+                  (click)="search()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="dialog-row">
+        <!--<ng-template #collectionItemsContainer></ng-template>-->
+        <div class="mat-elevation-z8" *ngIf="tableData">
+          <mat-table id="search-results-table" #table [dataSource]="tableData.source">
+
+            <ng-container matColumnDef="image">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Image&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" *matCellDef="let element">
+                <img class="search-result-table-image" [src]="element.image" alt="image"></mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Quantity&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" style="text-align: center;" *matCellDef="let element">
+                {{element.quantity}}
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="unit">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Unit&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" style="font-size: 10px;" *matCellDef="let element">
+                {{element.unit}}
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Name&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" style="word-wrap: unset;" *matCellDef="let element">
+                {{element.name}}
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="calories">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Calories&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" *matCellDef="let element">{{element.calories}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="weight">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Weight&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" *matCellDef="let element">{{element.weight}} g</mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="tableData.columns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: tableData.columns;"></mat-row>
+          </mat-table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
