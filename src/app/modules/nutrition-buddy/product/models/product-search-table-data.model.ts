@@ -1,16 +1,16 @@
+import {MatTableDataSource} from '@angular/material';
 import {ProductSearchTableElement} from './product-search-table-element.model';
 
 export interface IProductSearchTableData {
   columns: string[];
-  source: any;
+  source: MatTableDataSource<ProductSearchTableElement>;
 }
 
 export class ProductSearchTableData implements IProductSearchTableData {
   columns: string[];
-  source: ProductSearchTableElement[];
+  source: MatTableDataSource<ProductSearchTableElement>;
 
   constructor(spec?: IProductSearchTableData) {
-    this.source = [];
     if (spec) {
       this.columns = spec.columns;
       this.source = spec.source;

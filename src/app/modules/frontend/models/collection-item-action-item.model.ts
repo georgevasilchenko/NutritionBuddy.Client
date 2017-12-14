@@ -1,15 +1,16 @@
-import {HeaderActionItem, IHeaderActionItem} from './header-action-item.model';
+import {BaseAction, IBaseAction} from './base-action.model';
 
-export interface ICollectionItemActionItem extends IHeaderActionItem {
+export interface ICollectionItemActionItem extends IBaseAction {
   iconCode: string;
   itemTooltip: string;
 }
 
-export class CollectionItemActionItem extends HeaderActionItem implements ICollectionItemActionItem {
+export class CollectionItemActionItem extends BaseAction implements ICollectionItemActionItem {
   constructor(public iconCode: string,
               public itemTooltip: string,
               public navigationPath: string,
-              public customAction?: Function) {
-    super(iconCode, itemTooltip, navigationPath, customAction);
+              public customAction?: Function,
+              public actionText?: string) {
+    super(navigationPath, customAction);
   }
 }
