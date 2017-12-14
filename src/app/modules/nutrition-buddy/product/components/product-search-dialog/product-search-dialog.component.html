@@ -50,7 +50,7 @@
             <ng-container matColumnDef="name">
               <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Name&nbsp;
               </mat-header-cell>
-              <mat-cell class="search-results-table-cell" style="word-wrap: unset;" *matCellDef="let element">
+              <mat-cell class="search-results-table-cell" style="word-wrap: break-word;" *matCellDef="let element">
                 {{element.name}}
               </mat-cell>
             </ng-container>
@@ -65,6 +65,14 @@
               <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Weight&nbsp;
               </mat-header-cell>
               <mat-cell class="search-results-table-cell" *matCellDef="let element">{{element.weight}} g</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+              <mat-header-cell class="search-results-table-header-cell" *matHeaderCellDef>&nbsp;Actions&nbsp;
+              </mat-header-cell>
+              <mat-cell class="search-results-table-cell" *matCellDef="let element">
+                <fw-header-actions-panel [model]="element.actions"></fw-header-actions-panel>
+              </mat-cell>
             </ng-container>
 
             <mat-header-row *matHeaderRowDef="tableData.columns"></mat-header-row>

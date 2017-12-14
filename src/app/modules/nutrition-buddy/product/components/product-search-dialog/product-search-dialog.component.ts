@@ -1,6 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
-import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
 import {AlertService} from '../../../../frontend/services/alert.service';
 import {ProductRepositoryService} from '../../services/product-repository.service';
 import {MatDialogRef, MatTableDataSource} from '@angular/material';
@@ -15,6 +14,8 @@ import {ProductSearchQuery} from '../../models/product-search.model';
 import {ProductSearchListItemComponent} from '../product-search-list-item/product-search-list-item.component';
 import {IProductSearchTableData, ProductSearchTableData} from '../../models/product-search-table-data.model';
 import {IProductSearchTableElement, ProductSearchTableElement} from '../../models/product-search-table-element.model';
+import {DataService} from '../../../services/data.service';
+import {FileImage} from '../../../../frontend/models/file-image.model';
 
 @Component({
   selector: ProductSelectorsIds.ProductSearchDialogSelector,
@@ -24,12 +25,14 @@ import {IProductSearchTableElement, ProductSearchTableElement} from '../../model
 export class ProductSearchDialogComponent extends BaseCollectionComponent<Product> implements OnInit, OnDestroy {
 
   tableData: ProductSearchTableData;
+  blackList: string[] = [];
   searchQuery: string;
+  wereProductsSaved = false;
 
   constructor(public dialogRef: MatDialogRef<ProductSearchDialogComponent>,
               protected _productRepositoryService: ProductRepositoryService,
-              protected _localStorageService: LocalStorageService,
               protected _productService: ProductRepositoryService,
+              protected _dataService: DataService,
               protected _factoryService: ComponentFactoryService<Product, BaseComponent<Product>>,
               private _alertService: AlertService) {
     super(_productRepositoryService, _factoryService);
@@ -76,30 +79,43 @@ export class ProductSearchDialogComponent extends BaseCollectionComponent<Produc
   }
 
   onCancelClick(): void {
-    this.dialogRef.close(new DialogResult(false));
+    this.dialogRef.close(new DialogResult(this.wereProductsSaved));
   }
 
   modelToTable(model: Product[]): void {
     if (model && model.length > 0) {
       const tableSource = [];
-      const tableColumns = ['image', 'quantity', 'unit', 'name', 'calories', 'weight'];
+      const tableColumns = ['image', 'quantity', 'unit', 'name', 'calories', 'weight', 'actions'];
       for (const item of model) {
+
+        if (this.blackList.find((e) => e === item.productInformation.productName) !== undefined) {
+          continue;
+        }
+
         const tableElementSpec = <IProductSearchTableElement>{
           image: item.productInformation.imageUriThumb,
           quantity: +item.servingInformation.quantity,
           unit: item.servingInformation.unit,
           name: item.productInformation.productName,
           calories: +item.nutritionFacts.calories,
-          weight: +item.servingInformation.weightGrams
+          weight: +item.servingInformation.weightGrams,
+          actions: [
+            new HeaderActionItem(
+              IconsNames.AddBox,
+              'Save',
+              undefined,
+              () => this.onTableActionAddClick(item))
+          ]
         };
-
         tableSource.push(new ProductSearchTableElement(tableElementSpec));
       }
       const tableDataSpec = <IProductSearchTableData>{
         columns: tableColumns,
         source: new MatTableDataSource<ProductSearchTableElement>(tableSource)
       };
-      this.tableData = new ProductSearchTableData(tableDataSpec);
+      this.tableData = tableDataSpec.source.data.length > 0 ? new ProductSearchTableData(tableDataSpec) : undefined;
+    } else {
+      this.tableData = undefined;
     }
   }
 
@@ -111,6 +127,36 @@ export class ProductSearchDialogComponent extends BaseCollectionComponent<Produc
         model: item,
       }, ProductSearchListItemComponent);
       this.components.push(newComponent);
+    }
+  }
+
+  onTableActionAddClick(model: Product): void {
+    this._dataService.getImageData(model.productInformation.imageUriThumb)
+      .then((result: FileImage) => {
+        model.productImage = result;
+
+        this._productRepositoryService.create(model)
+          .then((e) => {
+            this.wereProductsSaved = true;
+            this.removeResultItem(model);
+            this._alertService.displayMessage('Saved: ' + model.productInformation.productName);
+          })
+          .catch((e) => {
+          });
+      });
+  }
+
+  removeResultItem(model: Product) {
+    const targetName = model.productInformation.productName;
+    if (this.model.length > 0) {
+      for (const item of this.model) {
+        if (item.productInformation.productName === targetName) {
+          const targetIndex = this.model.indexOf(model);
+          this.model.splice(targetIndex, 1);
+          this.modelToTable(this.model);
+          this.blackList.push(targetName);
+        }
+      }
     }
   }
 }

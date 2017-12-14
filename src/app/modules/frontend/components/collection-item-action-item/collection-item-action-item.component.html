@@ -1,18 +1,18 @@
 <div id="collection-item-action-item-container">
   <div id="item-inner">
-    <a *ngIf="!model.customAction"
-       mat-mini-fab color="accent"
-       [matTooltip]="model.itemTooltip" matTooltipPosition="below"
-       [routerLink]="model.navigationPath">
-      <mat-icon>{{model.iconCode}}
-      </mat-icon>
-    </a>
-    <a *ngIf="model.customAction"
-       mat-mini-fab color="accent"
-       [matTooltip]="model.itemTooltip" matTooltipPosition="below"
-       (click)="model.onCustomActionClick()">
-      <mat-icon>{{model.iconCode}}
-      </mat-icon>
-    </a>
+    <button *ngIf="!model.customAction"
+            mat-raised-button color="primary"
+            [matTooltip]="model.itemTooltip" matTooltipPosition="below"
+            [routerLink]="model.navigationPath">
+      <mat-icon *ngIf="!model.actionText">{{model.iconCode}}</mat-icon>
+      <span *ngIf="model.actionText">{{model.actionText}}</span>
+    </button>
+    <button *ngIf="model.customAction"
+            mat-raised-button color="primary"
+            [matTooltip]="model.itemTooltip" matTooltipPosition="below"
+            (click)="model.onCustomActionClick()">
+      <mat-icon *ngIf="!model.actionText">{{model.iconCode}}</mat-icon>
+      <span *ngIf="model.actionText">{{model.actionText}}</span>
+    </button>
   </div>
 </div>
