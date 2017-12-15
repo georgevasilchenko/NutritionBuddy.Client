@@ -18,7 +18,7 @@ export class AlertPopupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.color = MaterialsColorsIds.Accent;
+    this.color = MaterialsColorsIds.MatGreen;
     this.message = this.data.message;
   }
 }

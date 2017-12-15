@@ -12,7 +12,7 @@ import {MaterialsColorsIds} from '../../../../globals/materials-colors-ids';
 export class SidebarPrimaryItemComponent extends BaseActionComponent<SidebarPrimaryItem> implements OnInit {
 
   @Input() model: SidebarPrimaryItem;
-  activeColor = MaterialsColorsIds.Accent;
+  activeColor = MaterialsColorsIds.MatPink;
   isActive = false;
 
   constructor() {

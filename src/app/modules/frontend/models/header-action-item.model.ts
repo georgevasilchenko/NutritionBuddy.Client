@@ -9,7 +9,8 @@ export class HeaderActionItem extends BaseAction implements IHeaderActionItem {
   constructor(public iconCode: string,
               public itemTooltip: string,
               public navigationPath: string,
-              public customAction?: Function) {
-    super(navigationPath, customAction);
+              public customAction?: Function,
+              public isDisabled?: boolean) {
+    super(navigationPath, customAction, isDisabled);
   }
 }
