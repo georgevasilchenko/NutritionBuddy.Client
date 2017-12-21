@@ -24,10 +24,6 @@ export class ProductRepositoryService extends BaseRepositoryService<Product> {
     this.searchResults = [];
   }
 
-  addSearchResults(product: Product) {
-    this.searchResults.push(product);
-  }
-
   search(productSearchQuery: ProductSearchQuery): Promise<Product[]> {
     return this._http.post(AppUris.ProductSearch, productSearchQuery)
       .then(this.extractCollecitonData)

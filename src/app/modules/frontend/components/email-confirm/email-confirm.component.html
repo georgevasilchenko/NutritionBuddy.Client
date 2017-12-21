@@ -1,0 +1,21 @@
+<div id="email-confirm-card-wrapper">
+  <div id="email-confirm-card-container">
+    <mat-card id="email-confirm-card" class="card-common">
+      <mat-card-title id="email-confirm-card-title">
+        <h5 id="email-confirm-title">Account Confirmation</h5>
+      </mat-card-title>
+      <span class="single-card-form-message">{{confirmationStatusText}}</span>
+      <div id="success-confirm-mail-area" *ngIf="emailIsConfirmed">
+        <button id="success-confirm-button" mat-raised-button color="accent" type="button"
+                (click)="onLoginClick()">To Login
+        </button>
+      </div>
+      <div id="resend-confirm-mail-area" *ngIf="!emailIsConfirmed">
+        <button id="resend-confirm-button" color="warn" mat-raised-button type="button"
+                (click)="onResendConfirmationMail()">
+          Resend Confirmation
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

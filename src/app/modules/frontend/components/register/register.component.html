@@ -1,0 +1,56 @@
+<div id="register-card-wrapper">
+  <div id="register-card-container">
+    <form (ngSubmit)="onSubmit(registerForm)" [formGroup]="registerForm">
+      <mat-card id="register-card" class="card-common">
+        <mat-card-title id="register-card-title">
+          <h5 id="register-title">Register</h5>
+          <button id="login-button"
+                  type="button"
+                  (click)="onLoginClick()"
+                  mat-button color="accent">Login
+          </button>
+        </mat-card-title>
+
+        <div id="register-content">
+          <div class="register-form-column">
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.firstName" placeholder="First Name" formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.lastName" placeholder="Last Name" formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.userName" placeholder="Username" formControlName="userName">
+            </mat-form-field>
+          </div>
+          <div class="register-form-column">
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.email" placeholder="Email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.password" placeholder="Password"
+                     [type]="passwordHide ? 'password' : 'text'"
+                     formControlName="password">
+              <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' :
+                'visibility_off'}}
+              </mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="secondPassword" placeholder="Confirm Password"
+                     [type]="passwordHide ? 'password' : 'text'"
+                     formControlName="secondPassword">
+              <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' :
+                'visibility_off'}}
+              </mat-icon>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput [(ngModel)]="model.phoneNumber" type="tel" placeholder="Phone"
+                     formControlName="phoneNumber">
+            </mat-form-field>
+          </div>
+        </div>
+        <button mat-raised-button color="accent" type="submit" [disabled]="!registerForm.valid">Sumbit</button>
+      </mat-card>
+    </form>
+  </div>
+</div>

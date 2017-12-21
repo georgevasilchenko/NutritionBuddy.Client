@@ -1,4 +1,4 @@
-#login-card-wrapper {
+#email-confirm-card-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-#login-card-container {
+#email-confirm-card-container {
   position: relative;
   top: -12px;
 
@@ -18,32 +18,37 @@
   max-width: 360px;
   height: 240px;
 
-  #login-card {
+  #email-confirm-card {
     display: flex;
     flex-direction: column;
 
-    #login-card-title {
+    #email-confirm-card-title {
 
       display: flex;
       flex-direction: row;
       align-items: center;
-      //background-color: #6bb1e4;
 
-      #login-title {
+      #email-confirm-title {
         flex: 1;
-      }
-
-      #register-button {
-        margin-bottom: 5px;
       }
     }
 
-    #login-buttons-area {
+    #resend-confirm-mail-area {
       display: flex;
-      flex: 1;
       flex-direction: column;
 
-      #forgot-pass-button {
+      #resend-confirm-button {
+        flex: 1;
+        margin-top: 10px;
+      }
+    }
+
+    #success-confirm-mail-area {
+      display: flex;
+      flex-direction: column;
+
+      #success-confirm-button {
+        flex: 1;
         margin-top: 10px;
       }
     }

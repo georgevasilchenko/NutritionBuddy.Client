@@ -1,4 +1,4 @@
-#login-card-wrapper {
+#register-card-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -10,41 +10,45 @@
   flex-direction: column;
 }
 
-#login-card-container {
+#register-card-container {
   position: relative;
   top: -12px;
 
   width: 80%;
-  max-width: 360px;
+  max-width: 600px;
   height: 240px;
 
-  #login-card {
+  #register-card {
     display: flex;
     flex-direction: column;
 
-    #login-card-title {
+    #register-card-title {
 
       display: flex;
       flex-direction: row;
       align-items: center;
-      //background-color: #6bb1e4;
 
-      #login-title {
+      #register-title {
         flex: 1;
       }
 
-      #register-button {
+      #login-button {
         margin-bottom: 5px;
       }
     }
 
-    #login-buttons-area {
+    #register-content {
+      //background-color: red;
       display: flex;
-      flex: 1;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
 
-      #forgot-pass-button {
-        margin-top: 10px;
+      .register-form-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        //background-color: #93ff56;
+        margin: 5px;
       }
     }
   }

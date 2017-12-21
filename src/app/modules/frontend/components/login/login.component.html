@@ -1,32 +1,32 @@
-<div class="login-wrapper">
-  <div class="login-inner">
-  <div class="row justify-content-center">
-    <div class="col-xl-4 col-lg-5 col-md-6 col-sm-7 col-10">
-      <form class="login-form" (ngSubmit)="onSubmit(loginForm)" [formGroup]="loginForm">
-        <div class="login-title">
-          <p>{{isSignUp ? 'Register' : 'Login'}}</p>
+<div id="login-card-wrapper">
+  <div id="login-card-container">
+    <form (ngSubmit)="onSubmit(loginForm)" [formGroup]="loginForm">
+      <mat-card id="login-card" class="card-common">
+        <mat-card-title id="login-card-title">
+          <h5 id="login-title">Login</h5>
+          <button id="register-button"
+                  type="button"
+                  (click)="onRegisterClick()"
+                  mat-button color="accent">Register
+          </button>
+        </mat-card-title>
+        <mat-form-field class="form-row">
+          <input matInput placeholder="Email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="form-row">
+          <input matInput placeholder="Password" [type]="passwordHide ? 'password' : 'text'" formControlName="password">
+          <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{passwordHide ? 'visibility' : 'visibility_off'}}
+          </mat-icon>
+        </mat-form-field>
+        <div id="login-buttons-area">
+          <button mat-raised-button color="accent" type="submit" [disabled]="!loginForm.valid">Sumbit</button>
+          <button id="forgot-pass-button"
+                  type="button"
+                  (click)="onForgotPasswordClick()"
+                  mat-button color="warn">Forgot Password
+          </button>
         </div>
-        <div class="form-group">
-          <label for="login-email-input">Email</label>
-          <input type="email"
-                 class="form-control"
-                 id="login-email-input"
-                 placeholder="Email"
-                 formControlName="email">
-        </div>
-        <div class="form-group">
-          <label for="login-password-input">Password</label>
-          <input type="password"
-                 class="form-control"
-                 id="login-password-input"
-                 placeholder="Password"
-                 formControlName="password">
-        </div>
-        <button class="btn btn-primary btn-block"
-                type="submit" [disabled]="!loginForm.valid">Submit
-        </button>
-      </form>
-    </div>
+      </mat-card>
+    </form>
   </div>
-</div>
 </div>
