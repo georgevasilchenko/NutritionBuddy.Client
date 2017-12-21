@@ -11,6 +11,7 @@ export interface IUser {
   phoneNumber: string;
   password: string;
   userImage: IFileImage;
+  emailConfirmed: boolean;
 }
 
 export class User implements IUser {
@@ -24,8 +25,9 @@ export class User implements IUser {
   phoneNumber: string;
   password: string;
   userImage: FileImage;
+  emailConfirmed: boolean;
 
-  constructor(spec: IUser) {
+  constructor(spec?: IUser) {
 
     if (spec) {
       this.id = spec.id;
@@ -37,6 +39,7 @@ export class User implements IUser {
       this.email = spec.email;
       this.phoneNumber = spec.phoneNumber;
       this.password = spec.password;
+      this.emailConfirmed = spec.emailConfirmed;
 
       if (spec.userImage) {
         this.userImage = new FileImage(spec.userImage);
@@ -51,3 +54,53 @@ export class UserLogin {
   }
 }
 
+export class UserEmailConfirmation {
+  constructor(public email: string) {
+
+  }
+}
+
+export class UserEmailConfirmationStatusRequest {
+  constructor(public email: string) {
+
+  }
+}
+
+export class UserEmailResendConfirmationRequest {
+  constructor(public email: string) {
+
+  }
+}
+
+export enum EmailConfirmationStatus {
+  None = 0,
+  Confirmed = 1,
+  NotConfirmed = 2
+}
+
+export class UserEmailConfirmationStatusResponse {
+  constructor(public emailConfirmationStatus: EmailConfirmationStatus) {
+
+  }
+}
+
+export interface IUserNewPassword {
+  email: string;
+  password: string;
+  token: string;
+}
+
+export class UserNewPassword {
+  email: string;
+  password: string;
+  token: string;
+
+  constructor(spec?: any) {
+
+    if (spec) {
+      this.email = spec.email;
+      this.password = spec.password;
+      this.token = spec.token;
+    }
+  }
+}

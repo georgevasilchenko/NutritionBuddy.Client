@@ -22,10 +22,12 @@ export class AppUris {
   // Identity
   static UserAuthenticate = AppUris.RootUri + 'api/account/authenticate';
   static UserGetAll = AppUris.RootUri + 'api/account/getall';
-  static UserCreate = AppUris.RootUri + 'api/account/register';
+  static UserCreate = AppUris.RootUri + 'api/account/create';
   static UserUpdate = AppUris.RootUri + 'api/account/update';
   static UserDelete = AppUris.RootUri + 'api/account/delete';
   static UserGeById = (id: string) => {
     return AppUris.RootUri + 'api/account/getbyid?id=' + id;
   };
+  static UserEmailConfirmationStatus = AppUris.RootUri + 'api/account/getuseremailconfirmationstatus';
+  static UserResendConfirmation = AppUris.RootUri + 'api/account/resendconfirmation';
 }

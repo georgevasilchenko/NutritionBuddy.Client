@@ -3,7 +3,7 @@ import {Headers, Http, Response} from '@angular/http';
 import {RoutingService} from './routing.service';
 import {FrontendRouteIds} from '../globals/frontend-route-ids';
 import {AlertService} from './alert.service';
-import {ApiException, IApiException} from '../models/error-message.model';
+import {ApiException, IApiException} from '../models/api-exception.model';
 import {LocalStorageService} from './local-storage.service';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
@@ -56,22 +56,29 @@ export class HttpClientService {
       this._routingService.navigateTo(FrontendRouteIds.Login);
       this._alertService.displayMessage('You have to be logged in.');
       return Promise.reject('Unauthorized');
-    }
-
-    if (response.status === 404) {
+    } else if (response.status === 404) {
       this._alertService.displayMessage('Resource was not found!');
       return Promise.reject('NotFoundException!');
-    }
-
-    if (response.status === 500) {
+    } else if (response.status === 500) {
       const apiException = new ApiException(<IApiException>response.json());
       if (apiException) {
-        this._alertService.displayMessage(apiException.getMessages());
+        // this._alertService.displayMessage(apiException.getMessages());
+        this.handleApiException(apiException);
         return Promise.reject('ApiException!');
+      } else {
+        console.error('PIZDETS! Got 500 but could not get api exception out of response. Fix needed!');
       }
+    } else {
+      this._alertService.displayMessage('Could not connect to API service. Unknown error.');
+      return Promise.reject('UnhandledException!');
     }
+  }
 
-    this._alertService.displayMessage('Could not connect to API service. Unknown error.');
-    return Promise.reject('UnhandledException!');
+
+  handleApiException(apiException: ApiException): void {
+    // if (apiException.statusCode === 707) {
+    //
+    // }
+    this._alertService.displayMessage(apiException.getMessages());
   }
 }

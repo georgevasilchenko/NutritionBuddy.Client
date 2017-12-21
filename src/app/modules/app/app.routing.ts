@@ -12,7 +12,12 @@ import {ProductCollectionComponent} from '../nutrition-buddy/product/components/
 import {UserEditComponent} from '../nutrition-buddy/identity/components/user-edit/user-edit.component';
 import {UserRouteNames} from '../nutrition-buddy/identity/globals/user-route-names';
 import {UserRouteIds} from '../nutrition-buddy/identity/globals/user-route-ids';
-import {ProductEditComponent} from "../nutrition-buddy/product/components/product-edit/product-edit.component";
+import {ProductEditComponent} from '../nutrition-buddy/product/components/product-edit/product-edit.component';
+import {RegisterComponent} from '../frontend/components/register/register.component';
+import {EmailConfirmComponent} from '../frontend/components/email-confirm/email-confirm.component';
+import {ForgotPasswordComponent} from '../frontend/components/forgot-password/forgot-password.component';
+import {ResendEmailConfirmComponent} from '../frontend/components/resend-email-confirm/resend-email-confirm.component';
+import {NewPasswordComponent} from '../frontend/components/new-password/new-password.component';
 
 
 const AppRoutes: Routes = [
@@ -23,6 +28,51 @@ const AppRoutes: Routes = [
       routeId: FrontendRouteIds.Login,
       title: FrontendRouteNames.Login,
       navigation: '/login'
+    }
+  },
+  <Route>{
+    path: 'register',
+    component: RegisterComponent,
+    data: {
+      routeId: FrontendRouteIds.Register,
+      title: FrontendRouteNames.Register,
+      navigation: '/register'
+    }
+  },
+  <Route>{
+    path: 'email-confirm/:email/:status',
+    component: EmailConfirmComponent,
+    data: {
+      routeId: FrontendRouteIds.EmailConfirm,
+      title: FrontendRouteNames.EmailConfirm,
+      navigation: '/email-confirm'
+    }
+  },
+  <Route>{
+    path: 'forgot-pass',
+    component: ForgotPasswordComponent,
+    data: {
+      routeId: FrontendRouteIds.ForgotPassword,
+      title: FrontendRouteNames.ForgotPassword,
+      navigation: '/forgot-pass'
+    }
+  },
+  <Route>{
+    path: 'resend-email-confirm/:email',
+    component: ResendEmailConfirmComponent,
+    data: {
+      routeId: FrontendRouteIds.ResendEmailConfirmation,
+      title: FrontendRouteNames.ResendEmailConfirmation,
+      navigation: '/resend-email-confirm/'
+    }
+  },
+  <Route>{
+    path: 'new-pass/:email',
+    component: NewPasswordComponent,
+    data: {
+      routeId: FrontendRouteIds.NewPassword,
+      title: FrontendRouteNames.NewPassword,
+      navigation: '/new-pass'
     }
   },
   <Route>{
@@ -96,22 +146,6 @@ const AppRoutes: Routes = [
       navigation: '**'
     }
   }
-
-  // FrontendRouting.Dashboard,
-  // FrontendRouting.Login,
-
-  // Product
-  // NutritionBuddyRouting.ProductCollection,
-  // NutritionBuddyRouting.ProductEdit,
-  // NutritionBuddyRouting.ProductCreate,
-  // NutritionBuddyRouting.ProductSearch,
-  //
-  // // Identity
-  // NutritionBuddyRouting.UserEdit,
-
-  // Fall backs
-  // FrontendRouting.Default,
-  // FrontendRouting.PageNotFound
 ];
 
 @NgModule({

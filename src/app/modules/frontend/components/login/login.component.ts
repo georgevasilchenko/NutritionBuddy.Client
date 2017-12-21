@@ -8,18 +8,17 @@ import {RoutingService} from '../../services/routing.service';
 import {FrontendRouteIds} from '../../globals/frontend-route-ids';
 import 'rxjs/add/operator/toPromise';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
-import {UserLogin} from '../../../nutrition-buddy/identity/models/user.model';
+import {User, UserLogin} from '../../../nutrition-buddy/identity/models/user.model';
 
 @Component({
   selector: FrontendSelectorsIds.LoginSelector,
-  templateUrl: './login-new.component.html',
-  styleUrls: ['./login-new.component.less']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
-  isSignUp = false;
   loginForm: FormGroup;
   passwordHide = true;
 
@@ -45,12 +44,24 @@ export class LoginComponent implements OnInit {
   onSubmit(form: FormGroup) {
     if (form.valid) {
       this._authService.authenticate(new UserLogin(form.value.email, form.value.password))
-        .then(user => {
-            if (user && user.token) {
-              this._routingService.navigateTo(FrontendRouteIds.Dashboard);
+        .then((user: User) => {
+            if (user) {
+              if (user.token && user.emailConfirmed) {
+                this._routingService.navigateTo(FrontendRouteIds.Dashboard);
+              } else if (!user.emailConfirmed) {
+                this._routingService.navigateTo(FrontendRouteIds.ResendEmailConfirmation, user.email);
+              }
             }
           }
         );
     }
+  }
+
+  onForgotPasswordClick(): void {
+    this._routingService.navigateTo(FrontendRouteIds.ForgotPassword);
+  }
+
+  onRegisterClick(): void {
+    this._routingService.navigateTo(FrontendRouteIds.Register);
   }
 }

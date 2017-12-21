@@ -42,6 +42,11 @@ import {HeaderActionsPanelComponent} from './components/header-actions-panel/hea
 import {FeatureActionService} from './services/feature-action.service';
 import {CollectionItemActionItemComponent} from './components/collection-item-action-item/collection-item-action-item.component';
 import {AlertPopupComponent} from './components/alert-popup/alert-popup.component';
+import { RegisterComponent } from './components/register/register.component';
+import { EmailConfirmComponent } from './components/email-confirm/email-confirm.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResendEmailConfirmComponent } from './components/resend-email-confirm/resend-email-confirm.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 @NgModule({
   imports: [
@@ -78,7 +83,12 @@ import {AlertPopupComponent} from './components/alert-popup/alert-popup.componen
     SidebarSecondaryItemComponent,
     HeaderActionsPanelComponent,
     CollectionItemActionItemComponent,
-    AlertPopupComponent
+    AlertPopupComponent,
+    RegisterComponent,
+    EmailConfirmComponent,
+    ForgotPasswordComponent,
+    ResendEmailConfirmComponent,
+    NewPasswordComponent
   ],
   exports: [
     CreateCollectionItemComponent,
