@@ -14,6 +14,7 @@ import {MatDialog} from '@angular/material';
 import {ProductEditDialogComponent} from '../product-edit-dialog/product-edit-dialog.component';
 import {DialogResult} from '../../../../frontend/models/dialog-result.model';
 import {ProductSearchDialogComponent} from '../product-search-dialog/product-search-dialog.component';
+import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
 
 @Component({
   selector: ProductSelectorsIds.ProductCollectionSelector,
@@ -27,6 +28,7 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
 
   constructor(private _productCreateDialog: MatDialog,
               private _productSearchDialog: MatDialog,
+              private _localStorageService: LocalStorageService,
               private _routingService: RoutingService,
               private _featureActionsService: FeatureActionService,
               protected _productService: ProductRepositoryService,
@@ -36,6 +38,15 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
 
   ngOnInit() {
     this.loadModel();
+  }
+
+  loadModel(): void {
+    const userId = this._localStorageService.getUser().id;
+    this.repository.getAll(userId)
+      .then(results => {
+        this.model = results;
+        this.onLoadModelComplete();
+      });
   }
 
   openCreateDialog(): void {
@@ -125,7 +136,9 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
     }
 
     this.destroyChildren();
-    this._productService.getAll()
+
+    const userId = this._localStorageService.getUser().id;
+    this._productService.getAll(userId)
       .then(results => {
         this.model = results;
         this.mapResultsToCollection();

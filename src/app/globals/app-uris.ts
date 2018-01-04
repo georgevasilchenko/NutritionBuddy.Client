@@ -28,6 +28,8 @@ export class AppUris {
   static UserGeById = (id: string) => {
     return AppUris.RootUri + 'api/account/getbyid?id=' + id;
   };
-  static UserEmailConfirmationStatus = AppUris.RootUri + 'api/account/getuseremailconfirmationstatus';
+  static UserEmailConfirmationStatus = AppUris.RootUri + 'api/account/confirmemail';
   static UserResendConfirmation = AppUris.RootUri + 'api/account/resendconfirmation';
+  static UserPasswordResetRequest = AppUris.RootUri + 'api/account/requestpasswordreset';
+  static UserPasswordReset = AppUris.RootUri + 'api/account/resetpassword';
 }

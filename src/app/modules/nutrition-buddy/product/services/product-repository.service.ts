@@ -24,6 +24,12 @@ export class ProductRepositoryService extends BaseRepositoryService<Product> {
     this.searchResults = [];
   }
 
+  getAll(userId?: any): Promise<Product[]> {
+    return this._http.get(this._uris.getAllUri + '?userId=' + userId)
+      .then(this.extractCollecitonData)
+      .catch(this.handleError);
+  }
+
   search(productSearchQuery: ProductSearchQuery): Promise<Product[]> {
     return this._http.post(AppUris.ProductSearch, productSearchQuery)
       .then(this.extractCollecitonData)

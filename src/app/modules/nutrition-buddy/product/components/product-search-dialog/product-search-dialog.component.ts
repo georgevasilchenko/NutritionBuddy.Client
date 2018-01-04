@@ -16,6 +16,7 @@ import {IProductSearchTableData, ProductSearchTableData} from '../../models/prod
 import {IProductSearchTableElement, ProductSearchTableElement} from '../../models/product-search-table-element.model';
 import {DataService} from '../../../services/data.service';
 import {FileImage} from '../../../../frontend/models/file-image.model';
+import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
 
 @Component({
   selector: ProductSelectorsIds.ProductSearchDialogSelector,
@@ -33,6 +34,7 @@ export class ProductSearchDialogComponent extends BaseCollectionComponent<Produc
               protected _productRepositoryService: ProductRepositoryService,
               protected _productService: ProductRepositoryService,
               protected _dataService: DataService,
+              protected _localStorageService: LocalStorageService,
               protected _factoryService: ComponentFactoryService<Product, BaseComponent<Product>>,
               private _alertService: AlertService) {
     super(_productRepositoryService, _factoryService);
@@ -134,6 +136,7 @@ export class ProductSearchDialogComponent extends BaseCollectionComponent<Produc
     this._dataService.getImageData(model.productInformation.imageUriThumb)
       .then((result: FileImage) => {
         model.productImage = result;
+        model.applicationUserId = this._localStorageService.getUser().id;
 
         this._productRepositoryService.create(model)
           .then((e) => {

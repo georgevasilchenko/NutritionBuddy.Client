@@ -8,7 +8,7 @@ export abstract class BaseRepositoryService<TypeModel> {
               protected _uris: AppUrisCollection) {
   }
 
-  getAll(): Promise<TypeModel[]> {
+  getAll(data?: any): Promise<TypeModel[]> {
     return this._http.get(this._uris.getAllUri)
       .then(this.extractCollecitonData)
       .catch(this.handleError);
