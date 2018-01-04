@@ -5,7 +5,7 @@ import {RoutingService} from '../../services/routing.service';
 import {FrontendRouteIds} from '../../globals/frontend-route-ids';
 import {ActivatedRoute} from '@angular/router';
 import {UserRepositoryService} from '../../../nutrition-buddy/identity/services/user-repository.service';
-import {UserEmailResendConfirmationRequest} from '../../../nutrition-buddy/identity/models/user.model';
+import {EmailResendConfirmationRequest} from '../../../nutrition-buddy/identity/models/user.model';
 import {AlertService} from '../../services/alert.service';
 
 @Component({
@@ -33,7 +33,7 @@ export class ResendEmailConfirmComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     if (form.valid) {
-      this._userRepositoryService.resendConfirmationEmail(new UserEmailResendConfirmationRequest(this.email))
+      this._userRepositoryService.resendConfirmationEmail(new EmailResendConfirmationRequest(this.email))
         .then((result) => {
           this._alertService.displayMessage('Sent confirmation email to: ' + this.email + '!');
         });
@@ -42,5 +42,9 @@ export class ResendEmailConfirmComponent implements OnInit {
 
   onRegisterClick(): void {
     this._routingService.navigateTo(FrontendRouteIds.Register);
+  }
+
+  onLoginClick(): void {
+    this._routingService.navigateTo(FrontendRouteIds.Login);
   }
 }

@@ -10,7 +10,7 @@ export class AlertService {
   }
 
   displayMessage(message: string) {
-    this._snackBar.openFromComponent(AlertPopupComponent, {duration: 5000, data: new AlertSnackbarData(message)});
+    this._snackBar.openFromComponent(AlertPopupComponent, {duration: 10000, data: new AlertSnackbarData(message)});
     console.log(message);
   }
 }

@@ -60,6 +60,7 @@ export class ProductEditComponent extends BaseEditComponent<Product> implements 
 
   onLoadModelComplete() {
     this.model = new Product(this.model);
+    this.model.applicationUserId = this._localStorageService.getUser().id;
     this.form = this._productFormConfigService.generateForm(this.model);
   }
 

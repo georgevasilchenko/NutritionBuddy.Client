@@ -4,6 +4,9 @@ import {RoutingService} from '../../services/routing.service';
 import {AuthService} from '../../services/auth.service';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
 import {FrontendRouteIds} from '../../globals/frontend-route-ids';
+import {UserRepositoryService} from '../../../nutrition-buddy/identity/services/user-repository.service';
+import {PasswordResetRequest} from '../../../nutrition-buddy/identity/models/user.model';
+import {AlertService} from '../../services/alert.service';
 
 @Component({
   selector: FrontendSelectorsIds.ForgotPasswordSelector,
@@ -16,6 +19,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
               private _authService: AuthService,
+              private _alertService: AlertService,
+              private _userRepositoryService: UserRepositoryService,
               private _routingService: RoutingService) {
   }
 
@@ -27,13 +32,12 @@ export class ForgotPasswordComponent implements OnInit {
 
   onSubmit(form: FormGroup) {
     if (form.valid) {
-      // this._authService.authenticate(new UserLogin(form.value.email, form.value.password))
-      //   .then(user => {
-      //       if (user && user.token) {
-      //         this._routingService.navigateTo(FrontendRouteIds.Dashboard);
-      //       }
-      //     }
-      //   );
+      const model = new PasswordResetRequest(this.email);
+      this._userRepositoryService.requestPasswordReset(model)
+        .then(result => {
+          this._alertService.displayMessage('Password reset link was sent to: ' + this.email);
+          this._routingService.navigateTo(FrontendRouteIds.Login);
+        });
     }
   }
 

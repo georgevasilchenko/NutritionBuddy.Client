@@ -40,7 +40,7 @@ const AppRoutes: Routes = [
     }
   },
   <Route>{
-    path: 'email-confirm/:email/:status',
+    path: 'email-confirm',
     component: EmailConfirmComponent,
     data: {
       routeId: FrontendRouteIds.EmailConfirm,
@@ -67,7 +67,7 @@ const AppRoutes: Routes = [
     }
   },
   <Route>{
-    path: 'new-pass/:email',
+    path: 'new-pass',
     component: NewPasswordComponent,
     data: {
       routeId: FrontendRouteIds.NewPassword,

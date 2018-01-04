@@ -4,7 +4,12 @@
       <mat-card id="resend-email-card" class="card-common">
         <mat-card-title id="resend-email-card-title">
           <h5 id="resend-email-title">Email Confirmation</h5>
-          <button id="register-button"
+          <button class="redirect-button"
+                  type="button"
+                  (click)="onLoginClick()"
+                  mat-button color="accent">Login
+          </button>
+          <button class="redirect-button"
                   type="button"
                   (click)="onRegisterClick()"
                   mat-button color="accent">Register

@@ -48,25 +48,22 @@ export class User implements IUser {
   }
 }
 
+// Email Confirmation
+
 export class UserLogin {
   constructor(public email: string,
               public password: string) {
   }
 }
 
-export class UserEmailConfirmation {
-  constructor(public email: string) {
+export class EmailConfirmationRequest {
+  constructor(public email: string,
+              public token: string) {
 
   }
 }
 
-export class UserEmailConfirmationStatusRequest {
-  constructor(public email: string) {
-
-  }
-}
-
-export class UserEmailResendConfirmationRequest {
+export class EmailResendConfirmationRequest {
   constructor(public email: string) {
 
   }
@@ -78,8 +75,22 @@ export enum EmailConfirmationStatus {
   NotConfirmed = 2
 }
 
-export class UserEmailConfirmationStatusResponse {
-  constructor(public emailConfirmationStatus: EmailConfirmationStatus) {
+export class EmailConfirmationResult {
+  constructor(public isSuccess: boolean) {
+
+  }
+}
+
+// Password Reset
+
+export class PasswordResetRequest {
+  constructor(public email: string) {
+
+  }
+}
+
+export class PasswordResetResult {
+  constructor(public isSuccess: boolean) {
 
   }
 }
@@ -90,7 +101,7 @@ export interface IUserNewPassword {
   token: string;
 }
 
-export class UserNewPassword {
+export class PasswordResetNewPassword {
   email: string;
   password: string;
   token: string;

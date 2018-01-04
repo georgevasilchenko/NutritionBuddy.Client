@@ -8,7 +8,7 @@ import {FileImage, IFileImage} from '../../../frontend/models/file-image.model';
 
 export interface IProduct extends IEntity {
   id: number;
-  userId: string;
+  applicationUserId: string;
   uniqueName: string;
   productInformation: IProductInformation;
   nutritionFacts: INutritionFacts;
@@ -20,7 +20,7 @@ export interface IProduct extends IEntity {
 
 export class Product implements IProduct {
   id: number;
-  userId: string;
+  applicationUserId: string;
   uniqueName: string;
   productInformation: ProductInformation;
   nutritionFacts: NutritionFacts;
@@ -39,7 +39,7 @@ export class Product implements IProduct {
     this.productImage = new FileImage();
 
     if (spec) {
-      this.userId = spec.userId;
+      this.applicationUserId = spec.applicationUserId;
 
       this.uniqueName = spec.uniqueName;
 

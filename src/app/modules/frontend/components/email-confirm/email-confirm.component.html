@@ -5,13 +5,16 @@
         <h5 id="email-confirm-title">Account Confirmation</h5>
       </mat-card-title>
       <span class="single-card-form-message">{{confirmationStatusText}}</span>
-      <div id="success-confirm-mail-area" *ngIf="emailIsConfirmed">
-        <button id="success-confirm-button" mat-raised-button color="accent" type="button"
+      <div id="result-confirm-mail-area">
+        <button *ngIf="(!isLoading && emailIsConfirmed) || (isLoading && isError)"
+                id="success-confirm-button"
+                mat-raised-button color="accent" type="button"
                 (click)="onLoginClick()">To Login
         </button>
-      </div>
-      <div id="resend-confirm-mail-area" *ngIf="!emailIsConfirmed">
-        <button id="resend-confirm-button" color="warn" mat-raised-button type="button"
+        <button *ngIf="!isLoading && !emailIsConfirmed"
+                id="resend-confirm-button"
+                color="warn" mat-raised-button
+                type="button"
                 (click)="onResendConfirmationMail()">
           Resend Confirmation
         </button>

@@ -4,23 +4,24 @@ import {UserRepositoryService} from '../../../nutrition-buddy/identity/services/
 import {AlertService} from '../../services/alert.service';
 import {RoutingService} from '../../services/routing.service';
 import {ActivatedRoute} from '@angular/router';
-import {UserNewPassword} from '../../../nutrition-buddy/identity/models/user.model';
+import {IUserNewPassword, PasswordResetNewPassword, PasswordResetResult} from '../../../nutrition-buddy/identity/models/user.model';
 import {BaseComponent} from '../base-component/base.component';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
+import {FrontendRouteIds} from '../../globals/frontend-route-ids';
 
 @Component({
   selector: FrontendSelectorsIds.NewPasswordComponent,
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.less']
 })
-export class NewPasswordComponent extends BaseComponent<UserNewPassword> implements OnInit {
+export class NewPasswordComponent extends BaseComponent<PasswordResetNewPassword> implements OnInit {
   newPassForm: FormGroup;
   passwordHide = true;
-
-  email: string;
-  token: string;
   firstPassword: string;
   secondPassword: string;
+
+  private _email: string;
+  private _token: string;
 
   constructor(private _formBuilder: FormBuilder,
               private _userRepositoryService: UserRepositoryService,
@@ -28,41 +29,47 @@ export class NewPasswordComponent extends BaseComponent<UserNewPassword> impleme
               private _alertService: AlertService,
               private _routingService: RoutingService) {
     super();
-    this.model = new UserNewPassword();
+    this.model = new PasswordResetNewPassword();
   }
 
   ngOnInit() {
-
-    this.email = this._route.snapshot.paramMap.get('email');
-    this.token = this._route.snapshot.paramMap.get('token');
-
     this.newPassForm = this._formBuilder.group({
       firstPassword: [this.firstPassword, [Validators.required, Validators.minLength(6)]],
       secondPassword: [this.secondPassword, [Validators.required, Validators.minLength(6)]]
     });
+
+    this._route.queryParams.subscribe(params => {
+      this._email = params['email'];
+      this._token = params['token'];
+    });
   }
 
   onSubmit(form: FormGroup) {
-    if (this.secondPassword !== this.model.password) {
+    if (this.secondPassword !== this.firstPassword) {
       this._alertService.displayMessage('Passwords don\'t match');
       return;
     }
     if (form.valid) {
+      const newPassSpec = <IUserNewPassword>{
+        email: this._email,
+        token: this._token,
+        password: this.firstPassword
+      };
+      this.model = new PasswordResetNewPassword(newPassSpec);
 
-      this.model.token = this.token;
-      this.applyChangedModel(this.newPassForm.value);
-
-      this._userRepositoryService.setNewPassword(this.model)
-        .then(result => {
-            this._alertService.displayMessage('Requested');
+      this._userRepositoryService.resetPassword(this.model)
+        .then((result: PasswordResetResult) => {
+          if (result.isSuccess) {
+            this._alertService.displayMessage('Password for ' + this.model.email + ' was successfully reset!');
+            this._routingService.navigateTo(FrontendRouteIds.Login);
+          } else {
+            this._alertService.displayMessage('There was a problem resetting the password.');
+            this._routingService.navigateTo(FrontendRouteIds.Login);
           }
-        );
+        })
+        .catch(error => {
+          this._routingService.navigateTo(FrontendRouteIds.Login);
+        });
     }
   }
-
-  applyChangedModel(formValue: any) {
-    this.model.password = formValue.password;
-    this.model.email = formValue.email;
-  }
-
 }

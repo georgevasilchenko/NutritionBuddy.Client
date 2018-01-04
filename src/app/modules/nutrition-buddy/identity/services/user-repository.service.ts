@@ -1,12 +1,8 @@
 import {Injectable} from '@angular/core';
 import {BaseRepositoryService} from '../../../frontend/services/base-repository.service';
 import {
-  User,
-  UserEmailConfirmationStatusRequest,
-  UserEmailConfirmationStatusResponse,
-  UserEmailResendConfirmationRequest,
-  UserLogin,
-  UserNewPassword
+  EmailConfirmationRequest, EmailConfirmationResult, EmailResendConfirmationRequest, PasswordResetNewPassword, PasswordResetRequest,
+  PasswordResetResult, User, UserLogin
 } from '../models/user.model';
 import {HttpClientService} from '../../../frontend/services/http-client.service';
 import {IAppUris} from '../../../frontend/models/app-uris-contract.model';
@@ -36,22 +32,15 @@ export class UserRepositoryService extends BaseRepositoryService<User> {
       });
   }
 
-  getEmailConfirmationStatus(confirmationStatusRequest: UserEmailConfirmationStatusRequest): Promise<UserEmailConfirmationStatusResponse> {
+  confirmEmail(confirmationStatusRequest: EmailConfirmationRequest): Promise<EmailConfirmationResult> {
     return this._http.post(AppUris.UserEmailConfirmationStatus, confirmationStatusRequest)
       .then(response => {
-        return response.json() as UserEmailConfirmationStatusResponse;
+        return response.json() as EmailConfirmationResult;
       });
   }
 
-  resendConfirmationEmail(resendConfirmationStatusRequest: UserEmailResendConfirmationRequest): Promise<any> {
+  resendConfirmationEmail(resendConfirmationStatusRequest: EmailResendConfirmationRequest): Promise<any> {
     return this._http.post(AppUris.UserResendConfirmation, resendConfirmationStatusRequest)
-      .then(result => {
-        return result;
-      });
-  }
-
-  setNewPassword(userNewPassword: UserNewPassword): Promise<any> {
-    return this._http.post(AppUris.UserResendConfirmation, userNewPassword)
       .then(result => {
         return result;
       });
@@ -61,6 +50,20 @@ export class UserRepositoryService extends BaseRepositoryService<User> {
     return this._http.post(AppUris.UserCreate, user)
       .then((response: Response) => {
         return response;
+      });
+  }
+
+  requestPasswordReset(request: PasswordResetRequest): Promise<any> {
+    return this._http.post(AppUris.UserPasswordResetRequest, request)
+      .then((response: Response) => {
+        return response;
+      });
+  }
+
+  resetPassword(request: PasswordResetNewPassword): Promise<PasswordResetResult> {
+    return this._http.post(AppUris.UserPasswordReset, request)
+      .then((response: Response) => {
+        return response.json() as PasswordResetRequest;
       });
   }
 }
