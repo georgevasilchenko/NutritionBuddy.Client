@@ -42,8 +42,7 @@ export class ProductFormConfigService {
         protein_Grams: [model.nutritionFacts.protein_Grams, [Validators.required, Validators.min(0)]],
         potassium_MilliGrams: [model.nutritionFacts.totalCarbohydrate_Grams],
         phosphorus_MilliGrams: [model.nutritionFacts.phosphorus_MilliGrams]
-      }),
-      // nutrients: this._formBuilder.group(model.nutrients.getFormConfig(model.nutrients))
+      })
     });
   }
 }

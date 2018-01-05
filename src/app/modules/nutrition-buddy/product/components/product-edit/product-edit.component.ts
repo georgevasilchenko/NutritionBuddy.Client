@@ -93,6 +93,5 @@ export class ProductEditComponent extends BaseEditComponent<Product> implements 
     this.model.servingInformation = formValue.servingInformation;
     this.model.productInformation = formValue.productInformation;
     this.model.nutritionFacts = formValue.nutritionFacts;
-    this.model.nutrients = formValue.nutrients;
   }
 }
