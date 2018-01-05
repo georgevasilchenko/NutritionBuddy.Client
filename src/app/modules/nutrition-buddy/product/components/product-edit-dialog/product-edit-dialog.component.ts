@@ -168,6 +168,11 @@ export class ProductEditDialogComponent extends BaseEditComponent<Product> imple
     this.model.servingInformation = formValue.servingInformation;
     this.model.productInformation = formValue.productInformation;
     this.model.nutritionFacts = formValue.nutritionFacts;
+
+    // set user id explicitly
+    if (!this.model.applicationUserId) {
+      this.model.applicationUserId = this._localStorageService.getUser().id;
+    }
   }
 
   onDoneClick(form: FormGroup): void {
