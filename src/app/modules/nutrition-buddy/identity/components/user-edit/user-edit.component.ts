@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {BaseEditComponent} from '../../../../frontend/components/base-edit/base-edit.component';
+import {BaseEditComponent} from '../../../../frontend/components/base-components/base-edit/base-edit.component';
 import {User} from '../../models/user.model';
 import {UserRepositoryService} from '../../services/user-repository.service';
 import {ActivatedRoute} from '@angular/router';
@@ -9,7 +9,7 @@ import {UserSelectorsIds} from '../../globals/user-selectors-ids';
 import {FileImage} from '../../../../frontend/models/file-image.model';
 import {HeaderActionItem} from '../../../../frontend/models/header-action-item.model';
 import {IconsNames} from '../../../../../globals/icons-names';
-import {AlertService} from '../../../../frontend/services/alert.service';
+import {AlertService} from '../../../../frontend/services/utility-services/alert.service';
 
 @Component({
   selector: UserSelectorsIds.UserEditSelector,

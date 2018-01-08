@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
 import {SidebarPrimaryItem} from '../../models/sidebar-primary-item.model';
-import {BaseActionComponent} from '../base-action/base-action.component';
+import {BaseActionComponent} from '../base-components/base-action/base-action.component';
 import {MaterialsColorsIds} from '../../../../globals/materials-colors-ids';
 
 @Component({

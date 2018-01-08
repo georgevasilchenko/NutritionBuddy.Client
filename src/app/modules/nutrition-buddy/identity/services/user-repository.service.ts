@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BaseRepositoryService} from '../../../frontend/services/base-repository.service';
+import {BaseRepositoryService} from '../../../frontend/services/base-services/base-repository.service';
 import {
   EmailConfirmationRequest, EmailConfirmationResult, EmailResendConfirmationRequest, PasswordResetNewPassword, PasswordResetRequest,
   PasswordResetResult, User, UserLogin
@@ -33,7 +33,7 @@ export class UserRepositoryService extends BaseRepositoryService<User> {
   }
 
   confirmEmail(confirmationStatusRequest: EmailConfirmationRequest): Promise<EmailConfirmationResult> {
-    return this._http.post(AppUris.UserEmailConfirmationStatus, confirmationStatusRequest)
+    return this._http.post(AppUris.UserEmailConfirmation, confirmationStatusRequest)
       .then(response => {
         return response.json() as EmailConfirmationResult;
       });

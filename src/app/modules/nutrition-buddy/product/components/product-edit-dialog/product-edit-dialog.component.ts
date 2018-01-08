@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductFormConfigService} from '../../services/product-form-config.service';
-import {BaseEditComponent} from '../../../../frontend/components/base-edit/base-edit.component';
+import {BaseEditComponent} from '../../../../frontend/components/base-components/base-edit/base-edit.component';
 import {FormGroup} from '@angular/forms';
 import {IProduct, Product} from '../../models/product.model';
 import {ActivatedRoute} from '@angular/router';
@@ -14,7 +14,7 @@ import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {HeaderActionItem} from '../../../../frontend/models/header-action-item.model';
 import {IconsNames} from '../../../../../globals/icons-names';
 import {DialogResult} from '../../../../frontend/models/dialog-result.model';
-import {AlertService} from '../../../../frontend/services/alert.service';
+import {AlertService} from '../../../../frontend/services/utility-services/alert.service';
 
 @Component({
   selector: ProductSelectorsIds.ProductEditDialogSelector,

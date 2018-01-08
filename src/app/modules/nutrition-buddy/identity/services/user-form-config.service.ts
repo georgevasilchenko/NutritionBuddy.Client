@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {User} from '../models/user.model';
-import {BaseFormConfigService} from '../../../frontend/services/base-form-config.service';
+import {BaseFormConfigService} from '../../../frontend/services/base-services/base-form-config.service';
 
 @Injectable()
 export class UserFormConfigService extends BaseFormConfigService<User> {
 
   constructor(protected formBuilder: FormBuilder) {
-    super(formBuilder);
+    super();
   }
 
   generateForm(model: User): any {

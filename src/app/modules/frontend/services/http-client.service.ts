@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
 import {RoutingService} from './routing.service';
 import {FrontendRouteIds} from '../globals/frontend-route-ids';
-import {AlertService} from './alert.service';
+import {AlertService} from './utility-services/alert.service';
 import {ApiException, IApiException} from '../models/api-exception.model';
 import {LocalStorageService} from './local-storage.service';
 import 'rxjs/add/operator/toPromise';
@@ -76,9 +76,6 @@ export class HttpClientService {
 
 
   handleApiException(apiException: ApiException): void {
-    // if (apiException.statusCode === 707) {
-    //
-    // }
     this._alertService.displayMessage(apiException.getMessages());
   }
 }

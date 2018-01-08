@@ -1,0 +1,8 @@
+<img *ngIf="model"
+     (click)="openFileDialog()"
+     id="imageId"
+     [src]="model ? (model.imageString | safeHtml) : altImageSource"
+     alt="user image">
+<input #fileSelector style="visibility: hidden;"
+       (change)="onFileDialogFileChange($event)"
+       type="file"/>
