@@ -13,8 +13,8 @@ import {AlertService} from '../../../../frontend/services/utility-services/alert
 
 @Component({
   selector: UserSelectorsIds.UserEditSelector,
-  templateUrl: './user-edit-new.component.html',
-  styleUrls: ['./user-edit-new.component.less']
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.less']
 })
 export class UserEditComponent extends BaseEditComponent<User> implements OnInit, OnDestroy {
 
