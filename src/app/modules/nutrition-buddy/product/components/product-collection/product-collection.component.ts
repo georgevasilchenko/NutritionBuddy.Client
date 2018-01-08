@@ -1,10 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
-import {BaseCollectionComponent} from '../../../../frontend/components/base-collection/base-collection.component';
+import {BaseCollectionComponent} from '../../../../frontend/components/base-components/base-collection/base-collection.component';
 import {IProduct, Product} from '../../models/product.model';
 import {ComponentFactoryService} from '../../../../frontend/services/component-factory.service';
-import {BaseComponent} from '../../../../frontend/components/base-component/base.component';
-import {ProductItemComponent} from '../product-item/product-item.component';
+import {BaseComponent} from '../../../../frontend/components/base-components/base-component/base.component';
 import {ProductRepositoryService} from '../../services/product-repository.service';
 import {HeaderActionItem} from '../../../../frontend/models/header-action-item.model';
 import {IconsNames} from '../../../../../globals/icons-names';
@@ -15,11 +14,12 @@ import {ProductEditDialogComponent} from '../product-edit-dialog/product-edit-di
 import {DialogResult} from '../../../../frontend/models/dialog-result.model';
 import {ProductSearchDialogComponent} from '../product-search-dialog/product-search-dialog.component';
 import {LocalStorageService} from '../../../../frontend/services/local-storage.service';
+import {ProductCollectionItemComponent} from '../product-collection-item/product-collection-item.component';
 
 @Component({
   selector: ProductSelectorsIds.ProductCollectionSelector,
-  templateUrl: '../../../../frontend/components/base-collection/base-collection.component.html',
-  styleUrls: ['../../../../frontend/components/base-collection/base-collection.component.less']
+  templateUrl: '../../../../frontend/components/base-components/base-collection/base-collection.component.html',
+  styleUrls: ['../../../../frontend/components/base-components/base-collection/base-collection.component.less']
 })
 export class ProductCollectionComponent extends BaseCollectionComponent<Product> implements OnInit, OnDestroy {
 
@@ -33,7 +33,7 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
               private _featureActionsService: FeatureActionService,
               protected _productService: ProductRepositoryService,
               protected _factoryService: ComponentFactoryService<Product, BaseComponent<Product>>) {
-    super(_productService, _factoryService, undefined);
+    super(_productService, _factoryService);
   }
 
   ngOnInit() {
@@ -97,7 +97,7 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
 
   onLoadModelComplete() {
     this.mapResultsToCollection();
-    this.createComponents(this.model, ProductItemComponent);
+    this.createComponents(this.model, ProductCollectionItemComponent);
     this.createActions();
   }
 
@@ -142,7 +142,7 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
       .then(results => {
         this.model = results;
         this.mapResultsToCollection();
-        this.createComponents(this.model, ProductItemComponent);
+        this.createComponents(this.model, ProductCollectionItemComponent);
       });
   }
 }

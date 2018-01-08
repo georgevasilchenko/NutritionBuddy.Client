@@ -11,7 +11,6 @@ export class ActiveStateService {
   }
 
   setState(state: any): void {
-    // console.log('state change to:', state);
     this._currentState = state;
     this.onStateChange.emit(state);
   }

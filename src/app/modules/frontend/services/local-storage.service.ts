@@ -4,10 +4,7 @@ import {User} from '../../nutrition-buddy/identity/models/user.model';
 @Injectable()
 export class LocalStorageService {
 
-  public __FOOD_KEY = 'food';
-  public __SRCH_FOOD_KEY = 'food-search-result';
   public __PROD_KEY = 'product';
-  public __PROD_ID_KEY = 'product_id';
 
 
   private __API_KEY = 'apiKey';

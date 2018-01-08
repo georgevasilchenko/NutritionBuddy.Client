@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {Route, RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from '../frontend/components/dashboard/dashboard.component';
-import {LoginComponent} from '../frontend/components/login/login.component';
+import {LoginComponent} from '../frontend/components/account-management-components/login/login.component';
 import {FrontendRouteIds} from '../frontend/globals/frontend-route-ids';
 import {FrontendRouteNames} from '../frontend/globals/frontend-route-names';
-import {PageNotFoundComponent} from '../frontend/components/page-not-found/page-not-found.component';
+import {PageNotFoundComponent} from '../frontend/components/misc-components/page-not-found/page-not-found.component';
 import {AuthGuardService} from '../frontend/services/auth-guard.service';
 import {ProductRouteNames} from '../nutrition-buddy/product/globals/product-route-names';
 import {ProductRouteIds} from '../nutrition-buddy/product/globals/product-route-ids';
@@ -12,12 +12,11 @@ import {ProductCollectionComponent} from '../nutrition-buddy/product/components/
 import {UserEditComponent} from '../nutrition-buddy/identity/components/user-edit/user-edit.component';
 import {UserRouteNames} from '../nutrition-buddy/identity/globals/user-route-names';
 import {UserRouteIds} from '../nutrition-buddy/identity/globals/user-route-ids';
-import {ProductEditComponent} from '../nutrition-buddy/product/components/product-edit/product-edit.component';
-import {RegisterComponent} from '../frontend/components/register/register.component';
-import {EmailConfirmComponent} from '../frontend/components/email-confirm/email-confirm.component';
-import {ForgotPasswordComponent} from '../frontend/components/forgot-password/forgot-password.component';
-import {ResendEmailConfirmComponent} from '../frontend/components/resend-email-confirm/resend-email-confirm.component';
-import {NewPasswordComponent} from '../frontend/components/new-password/new-password.component';
+import {RegisterComponent} from '../frontend/components/account-management-components/register/register.component';
+import {EmailConfirmComponent} from '../frontend/components/account-management-components/email-confirm/email-confirm.component';
+import {ForgotPasswordComponent} from '../frontend/components/account-management-components/forgot-password/forgot-password.component';
+import {ResendEmailConfirmComponent} from '../frontend/components/account-management-components/resend-email-confirm/resend-email-confirm.component';
+import {NewPasswordComponent} from '../frontend/components/account-management-components/new-password/new-password.component';
 
 
 const AppRoutes: Routes = [
@@ -93,27 +92,6 @@ const AppRoutes: Routes = [
           routeId: ProductRouteIds.ProductCollection,
           title: ProductRouteNames.ProductCollection,
           navigation: 'product/select'
-        },
-      },
-      <Route>{
-        path: 'product/edit',
-        component: ProductEditComponent,
-        canActivate: [AuthGuardService],
-        data: {
-          routeId: ProductRouteIds.ProductCreate,
-          title: ProductRouteNames.ProductCreate,
-          navigation: 'product/edit',
-          model: {}
-        },
-      },
-      <Route>{
-        path: 'product/edit/:id',
-        component: ProductEditComponent,
-        canActivate: [AuthGuardService],
-        data: {
-          routeId: ProductRouteIds.ProductEdit,
-          title: ProductRouteNames.ProductEdit,
-          navigation: 'product/edit'
         },
       },
       <Route>{

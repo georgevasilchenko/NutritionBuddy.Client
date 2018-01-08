@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AlertService} from '../../frontend/services/alert.service';
+import {AlertService} from '../../frontend/services/utility-services/alert.service';
 import {ActivatedRouteSnapshot, NavigationEnd, Router} from '@angular/router';
 import {ActiveStateService} from '../../frontend/services/active-state.service';
 

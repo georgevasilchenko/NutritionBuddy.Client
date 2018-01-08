@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BaseComponent} from '../base-component/base.component';
+import {BaseComponent} from '../base-components/base-component/base.component';
 import {HeaderActionItem} from '../../models/header-action-item.model';
 import {FrontendSelectorsIds} from '../../globals/frontend-selectors-ids';
 

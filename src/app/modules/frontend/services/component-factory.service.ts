@@ -1,5 +1,5 @@
 import {ComponentFactoryResolver, ComponentRef, Inject, Injectable, Type, ViewContainerRef} from '@angular/core';
-import {BaseCollectionItemComponent} from "../components/base-collection-item/base-collection-item.component";
+import {BaseCollectionItemComponent} from '../components/base-components/base-collection-item/base-collection-item.component';
 
 @Injectable()
 export class ComponentFactoryService<TypeModel, TypeCollectionItem extends BaseCollectionItemComponent<TypeModel>> {

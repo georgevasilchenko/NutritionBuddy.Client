@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BaseComponent} from '../../../../frontend/components/base-component/base.component';
+import {BaseComponent} from '../../../../frontend/components/base-components/base-component/base.component';
 import {ProductInformation} from '../../models/product-information.model';
 import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {FormGroup} from '@angular/forms';

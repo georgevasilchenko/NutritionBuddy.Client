@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {BaseComponent} from '../../../../frontend/components/base-component/base.component';
+import {BaseComponent} from '../../../../frontend/components/base-components/base-component/base.component';
 import {Product} from '../../models/product.model';
 import {ProductSelectorsIds} from '../../globals/product-selectors-ids';
 import {IconsNames} from '../../../../../globals/icons-names';
