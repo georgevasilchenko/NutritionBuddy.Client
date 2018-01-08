@@ -1,2 +1,78 @@
-@import "../../../../../../styles/overrides.css";
-@import "../../../../../../styles/elements";
+#user-edit-container {
+  //background-color: rgba(255, 0, 0, 0.19);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  #user-edit-card {
+
+    @media (max-width: 400px) {
+      width: 240px;
+    }
+
+    #user-edit-header {
+      background-color: #a3d4dd;
+      height: 60px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+
+    #user-edit-content {
+      padding-top: 10px;
+      //background-color: rgba(68, 221, 158, 0.45);
+
+      .user-edit-content-section-title {
+        font-size: 24px;
+      }
+
+      #user-edit-content-main-card {
+
+        margin: 0px 5px 5px 5px;
+        max-width: 800px;
+
+        #user-edit-content-main-card-content {
+
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .user-edit-main-column {
+
+            @media (max-width: 400px) {
+              min-width: auto;
+            }
+
+            min-width: 250px;
+            padding: 5px;
+            margin: 5px;
+            //background-color: rgba(55, 199, 221, 0.45);
+
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            #user-image {
+              padding: 5px;
+
+              flex: 1;
+              //background-color: rgba(255, 75, 53, 0.36);
+
+              min-height: 150px;
+              min-width: 150px;
+
+              max-height: 200px;
+              max-width: 200px;
+
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+}
