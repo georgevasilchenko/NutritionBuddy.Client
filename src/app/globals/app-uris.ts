@@ -9,7 +9,7 @@ export class AppUris {
     return AppUris.RootUri + 'api/data/getimagedata?uri=' + uri;
   };
 
-  // Product
+  // Product Uris
   static ProductGetAll = AppUris.RootUri + 'api/product/getall';
   static ProductCreate = AppUris.RootUri + 'api/product/create';
   static ProductUpdate = AppUris.RootUri + 'api/product/update';
@@ -19,7 +19,7 @@ export class AppUris {
     return AppUris.RootUri + 'api/product/getbyid?id=' + id;
   };
 
-  // Identity
+  // Identity Uris
   static UserAuthenticate = AppUris.RootUri + 'api/account/authenticate';
   static UserGetAll = AppUris.RootUri + 'api/account/getall';
   static UserCreate = AppUris.RootUri + 'api/account/create';
