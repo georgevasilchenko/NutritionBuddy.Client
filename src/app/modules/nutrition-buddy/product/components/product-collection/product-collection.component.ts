@@ -96,9 +96,10 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
   }
 
   onLoadModelComplete() {
+    this.createActions();
+
     this.mapResultsToCollection();
     this.createComponents(this.model, ProductCollectionItemComponent);
-    this.createActions();
   }
 
   mapResultsToCollection(): void {
@@ -120,12 +121,14 @@ export class ProductCollectionComponent extends BaseCollectionComponent<Product>
   createComponents(model: Product[], type: any): void {
     this.factoryService.setRootViewContainerRef(this.collectionItemsContainer);
 
-    for (const item of model) {
-      const newComponent = this.factoryService.addDynamicComponentWithExtendedModel({
-        model: item,
-        parentCollectionComponent: this
-      }, type);
-      this.components.push(newComponent);
+    if (model.length > 0) {
+      for (const item of model) {
+        const newComponent = this.factoryService.addDynamicComponentWithExtendedModel({
+          model: item,
+          parentCollectionComponent: this
+        }, type);
+        this.components.push(newComponent);
+      }
     }
   }
 
